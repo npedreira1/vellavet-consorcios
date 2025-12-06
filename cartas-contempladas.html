@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_code = r"""<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -663,7 +663,7 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
 
   <script>
     // TROCAR PELO NÚMERO OFICIAL DA VELLAVET (DDI + DDD + número, só dígitos)
-    const +5511994151000 = "5511999999999";
+    const WHATSAPP_NUMBER = "5511999999999";
 
     const state = {
       all: [],
@@ -929,8 +929,8 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
     }
 
     function abrirWhatsApp(mensagem) {
-      if (!+5511994151000) return;
-      const url = `https://wa.me/${+5511994151000}?text=${encodeURIComponent(mensagem)}`;
+      if (!WHATSAPP_NUMBER) return;
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
       window.open(url, "_blank");
     }
 
@@ -1020,3 +1020,10 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
   </script>
 </body>
 </html>
+"""
+
+file_path = "/mnt/data/cartas-contempladas-v2.html"
+with open(file_path, "w", encoding="utf-8") as f:
+    f.write(html_code)
+
+file_path
