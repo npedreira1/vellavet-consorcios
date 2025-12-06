@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cartas Contempladas | Vellavet Assessoria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --vv-bg: #050816;
+      --vv-bg-soft: #0b1020;
+      --vv-card: #111827;
+      --vv-card-soft: #1f2937;
+      --vv-border: rgba(148, 163, 184, 0.35);
+      --vv-text: #e5e7eb;
+      --vv-muted: #9ca3af;
+      --vv-accent: #22c55e;
+      --vv-accent-soft: rgba(34, 197, 94, 0.12);
+      --vv-accent-strong: #16a34a;
+      --vv-info: #38bdf8;
+      --vv-danger: #f97373;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #020617 0, #020617 45%, #000 100%);
+      color: var(--vv-text);
+    }
+
+    .vv-page {
+      min-height: 100vh;
+      padding: 32px 16px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .vv-container {
+      width: 100%;
+      max-width: 1120px;
+    }
+
+    /* HERO */
+
+    .vv-hero {
+      background: radial-gradient(circle at top left, #0f172a, #020617);
+      border-radius: 28px;
+      padding: 32px 24px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      box-shadow:
+        0 40px 80px rgba(15, 23, 42, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .vv-hero::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.19), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(34, 197, 94, 0.2), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .vv-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .vv-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .vv-badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+    }
+
+    .vv-title {
+      font-size: clamp(26px, 4vw, 32px);
+      margin: 0 0 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .vv-subtitle {
+      margin: 0;
+      max-width: 640px;
+      font-size: 14px;
+      color: var(--vv-muted);
+      line-height: 1.5;
+    }
+
+    /* FILTROS */
+
+    .vv-filters {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
+      border-radius: 24px;
+      padding: 20px 18px 18px;
+      border: 1px solid var(--vv-border);
+      box-shadow: 0 24px 40px rgba(15, 23, 42, 0.8);
+      margin-bottom: 16px;
+    }
+
+    .vv-filters-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .vv-filters-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .vv-filters-sub {
+      font-size: 12px;
+      color: var(--vv-muted);
+    }
+
+    .vv-filters-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px 16px;
+      margin-bottom: 14px;
+    }
+
+    .vv-field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--vv-muted);
+      margin-bottom: 4px;
+    }
+
+    .vv-input,
+    .vv-select {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.92);
+      color: var(--vv-text);
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      appearance: none;
+    }
+
+    .vv-input::placeholder {
+      color: rgba(148, 163, 184, 0.7);
+    }
+
+    .vv-input:focus,
+    .vv-select:focus {
+      border-color: var(--vv-info);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.3);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .vv-input-range {
+      display: flex;
+      gap: 8px;
+    }
+
+    .vv-input-range .vv-input {
+      border-radius: 999px;
+    }
+
+    .vv-filters-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .vv-btn {
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .vv-btn-outline {
+      background: transparent;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--vv-muted);
+    }
+
+    .vv-btn-outline:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: var(--vv-accent);
+      color: var(--vv-text);
+    }
+
+    .vv-btn-primary {
+      background: radial-gradient(circle at top left, #4ade80, #16a34a);
+      color: #0b1120;
+      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.55);
+      min-width: 132px;
+    }
+
+    .vv-btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(34, 197, 94, 0.7);
+    }
+
+    .vv-btn-secondary {
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      border: 1px solid rgba(56, 189, 248, 0.6);
+    }
+
+    .vv-btn-secondary:hover {
+      background: rgba(15, 23, 42, 1);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
+    }
+
+    .vv-btn-ghost {
+      background: transparent;
+      color: var(--vv-muted);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+    }
+
+    .vv-btn-ghost:hover {
+      border-style: solid;
+      color: var(--vv-text);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .vv-btn-action {
+      font-size: 11px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      color: #bbf7d0;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.17s ease;
+    }
+
+    .vv-btn-action:hover {
+      background: rgba(34, 197, 94, 0.2);
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.5);
+    }
+
+    /* RESULTADOS */
+
+    .vv-card {
+      background: rgba(15, 23, 42, 0.98);
+      border-radius: 24px;
+      border: 1px solid var(--vv-border);
+      box-shadow: 0 24px 40px rgba(15, 23, 42, 0.85);
+      padding: 18px 18px 20px;
+    }
+
+    .vv-results-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .vv-results-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .vv-results-pill {
+      font-size: 11px;
+      color: #bae6fd;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 999px;
+      padding: 4px 10px;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+    }
+
+    .vv-results-count {
+      font-size: 11px;
+      color: var(--vv-muted);
+    }
+
+    .vv-table-wrapper {
+      border-radius: 18px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      overflow: hidden;
+    }
+
+    .vv-results-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .vv-results-table thead {
+      background: linear-gradient(90deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.94));
+    }
+
+    .vv-results-table thead th {
+      font-size: 11px;
+      text-align: left;
+      padding: 10px 12px;
+      color: rgba(148, 163, 184, 0.9);
+      border-bottom: 1px solid rgba(55, 65, 81, 0.9);
+      white-space: nowrap;
+    }
+
+    .vv-results-table tbody tr:nth-child(even) {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .vv-results-table tbody tr:nth-child(odd) {
+      background: rgba(15, 23, 42, 0.98);
+    }
+
+    .vv-results-table td {
+      font-size: 12px;
+      padding: 9px 12px;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+      vertical-align: middle;
+    }
+
+    .vv-results-table td.vv-center {
+      text-align: center;
+    }
+
+    .vv-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 1);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 11px;
+    }
+
+    .vv-admin {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .vv-money {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .vv-empty-row {
+      text-align: center;
+      padding: 16px 12px;
+      color: var(--vv-muted);
+      font-size: 13px;
+    }
+
+    /* SELEÇÃO / RESUMO */
+
+    .vv-selection-panel {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 14px;
+      padding: 14px 14px 12px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.16), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(34, 197, 94, 0.5);
+    }
+
+    .vv-selection-text {
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+
+    .vv-selection-title {
+      font-size: 13px;
+      font-weight: 500;
+      margin: 0 0 4px;
+    }
+
+    .vv-selection-note {
+      font-size: 11px;
+      color: #bbf7d0;
+      margin: 0 0 6px;
+    }
+
+    .vv-selection-summary {
+      font-size: 11px;
+      color: var(--vv-muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      white-space: pre-wrap;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 12px;
+      padding: 8px 10px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      max-height: 132px;
+      overflow-y: auto;
+    }
+
+    .vv-selection-actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      min-width: 190px;
+    }
+
+    /* FOOTER CTA */
+
+    .vv-footer-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .vv-footer-text {
+      margin: 0;
+      font-size: 12px;
+      color: var(--vv-muted);
+      max-width: 520px;
+    }
+
+    .vv-footer-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 900px) {
+      .vv-filters-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .vv-page {
+        padding: 20px 10px 32px;
+      }
+
+      .vv-hero {
+        padding: 20px 16px;
+        border-radius: 22px;
+      }
+
+      .vv-filters {
+        padding: 16px 14px 14px;
+      }
+
+      .vv-filters-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .vv-results-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .vv-selection-panel {
+        flex-direction: column;
+      }
+
+      .vv-selection-actions {
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .vv-results-table {
+        font-size: 12px;
+      }
+
+      .vv-results-table thead th,
+      .vv-results-table td {
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="vv-page">
+    <div class="vv-container">
+      <!-- HERO -->
+      <section class="vv-hero">
+        <div class="vv-hero-inner">
+          <span class="vv-badge">Consórcio Vellavet</span>
+          <h1 class="vv-title">Cartas contempladas com curadoria especializada</h1>
+          <p class="vv-subtitle">
+            Utilize os filtros para refinar. A disponibilidade é confirmada caso a caso com a administradora e
+            pode mudar sem aviso prévio.
+          </p>
+        </div>
+      </section>
+
+      <!-- FILTROS -->
+      <section class="vv-filters">
+        <div class="vv-filters-header">
+          <div>
+            <div class="vv-filters-title">Filtros para encontrar a carta ideal</div>
+            <div class="vv-filters-sub">
+              Combine segmento, administradora, crédito e valor de parcela para chegar no cenário desejado.
+            </div>
+          </div>
+        </div>
+
+        <div class="vv-filters-grid">
+          <!-- Segmento -->
+          <div class="vv-field">
+            <label for="segmento-select">Segmento</label>
+            <select id="segmento-select" class="vv-select">
+              <option value="">Todos</option>
+            </select>
+          </div>
+
+          <!-- Administradora -->
+          <div class="vv-field">
+            <label for="admin-select">Administradora</label>
+            <select id="admin-select" class="vv-select">
+              <option value="">Todas</option>
+            </select>
+          </div>
+
+          <!-- Crédito -->
+          <div class="vv-field">
+            <label>Crédito (R$)</label>
+            <div class="vv-input-range">
+              <input id="carta-min" type="number" class="vv-input" placeholder="Mínimo" />
+              <input id="carta-max" type="number" class="vv-input" placeholder="Máximo" />
+            </div>
+          </div>
+
+          <!-- Parcela -->
+          <div class="vv-field">
+            <label>Valor da parcela (R$)</label>
+            <div class="vv-input-range">
+              <input id="parcela-min" type="number" class="vv-input" placeholder="Mínimo" />
+              <input id="parcela-max" type="number" class="vv-input" placeholder="Máximo" />
+            </div>
+          </div>
+        </div>
+
+        <div class="vv-filters-actions">
+          <button id="btn-clear" class="vv-btn vv-btn-outline" type="button">Limpar filtros</button>
+          <button id="btn-apply" class="vv-btn vv-btn-primary" type="button">Aplicar filtros</button>
+        </div>
+      </section>
+
+      <!-- RESULTADOS -->
+      <section class="vv-card">
+        <div class="vv-results-header">
+          <div>
+            <div class="vv-results-title">Cartas contempladas disponíveis</div>
+            <div id="results-count" class="vv-results-count">
+              Carregando lista de cartas contempladas…
+            </div>
+          </div>
+          <div class="vv-results-pill">
+            Base em cartas contempladas de diversas administradoras, atualizada periodicamente.
+          </div>
+        </div>
+
+        <div class="vv-table-wrapper">
+          <table class="vv-results-table">
+            <thead>
+              <tr>
+                <th>Sel.</th>
+                <th>Segmento</th>
+                <th>Administradora</th>
+                <th>Crédito (R$)</th>
+                <th>Entrada (R$)</th>
+                <th>Parcelas</th>
+                <th>Valor da Parcela (R$)</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="results-body">
+              <tr>
+                <td class="vv-empty-row" colspan="8">
+                  Carregando lista de cartas contempladas…
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- RESUMO DE SELEÇÃO -->
+        <div class="vv-selection-panel">
+          <div class="vv-selection-text">
+            <p class="vv-selection-title">Resumo das cartas selecionadas</p>
+            <p class="vv-selection-note">
+              Selecione uma ou mais cartas na tabela para somar o crédito e a entrada e gerar um texto pronto.
+            </p>
+            <pre id="selection-summary" class="vv-selection-summary">
+Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel." para ver o resumo aqui.</pre>
+          </div>
+          <div class="vv-selection-actions">
+            <button id="btn-copy-selection" type="button" class="vv-btn vv-btn-outline">
+              Copiar resumo
+            </button>
+            <button id="btn-whats-selection" type="button" class="vv-btn vv-btn-secondary">
+              Reservar via WhatsApp
+            </button>
+          </div>
+        </div>
+
+        <!-- FOOTER CTA -->
+        <div class="vv-footer-actions">
+          <p class="vv-footer-text">
+            Quer uma análise guiada por especialista? A Vellavet atua como curadoria independente,
+            cruzando taxa de administração, prazo, segmento, uso e impacto no seu capital de giro.
+          </p>
+
+          <div class="vv-footer-cta">
+            <button id="btn-whats" type="button" class="vv-btn vv-btn-secondary">
+              Solicitar atendimento especializado
+            </button>
+            <button id="btn-csv" type="button" class="vv-btn vv-btn-ghost">
+              Download da lista (CSV)
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // TROCAR PELO NÚMERO OFICIAL DA VELLAVET (DDI + DDD + número, só dígitos)
+    const +5511994151000 = "5511999999999";
+
+    const state = {
+      all: [],
+      filtered: [],
+      selectedIds: new Set()
+    };
+
+    const els = {
+      segmento: document.getElementById("segmento-select"),
+      admin: document.getElementById("admin-select"),
+      cartaMin: document.getElementById("carta-min"),
+      cartaMax: document.getElementById("carta-max"),
+      parcelaMin: document.getElementById("parcela-min"),
+      parcelaMax: document.getElementById("parcela-max"),
+      btnApply: document.getElementById("btn-apply"),
+      btnClear: document.getElementById("btn-clear"),
+      btnCsv: document.getElementById("btn-csv"),
+      btnWhats: document.getElementById("btn-whats"),
+      btnCopySelection: document.getElementById("btn-copy-selection"),
+      btnWhatsSelection: document.getElementById("btn-whats-selection"),
+      resultsBody: document.getElementById("results-body"),
+      resultsCount: document.getElementById("results-count"),
+      selectionSummary: document.getElementById("selection-summary")
+    };
+
+    function formatCurrency(value) {
+      if (value == null || value === "") return "-";
+      const num = Number(value);
+      if (Number.isNaN(num)) return "-";
+      return num.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+        maximumFractionDigits: 2
+      });
+    }
+
+    function loadData() {
+      fetch("consorcios.json")
+        .then((res) => {
+          if (!res.ok) throw new Error("Erro ao carregar JSON");
+          return res.json();
+        })
+        .then((data) => {
+          // Garante um ID único por carta
+          state.all = data.map((item, index) => ({
+            id: item.id ?? item.codigo ?? item.cod ?? `carta-${index + 1}`,
+            segmento: item.segmento ?? item.Segmento ?? item.segment ?? "Imóveis",
+            administradora: item.administradora ?? item.Adm ?? item.admin ?? "Administradora",
+            credito: Number(item.credito ?? item.Credito ?? item["Crédito"] ?? 0),
+            entrada: Number(item.entrada ?? item.Entrada ?? 0),
+            parcelas: Number(item.parcelas ?? item.Prazo ?? 0),
+            valor_parcela: Number(item.valor_parcela ?? item["Valor Parcela"] ?? item.custo_mensal ?? item["CUSTO MENSAL"] ?? 0),
+            codigo: item.codigo ?? item.cod ?? item["Cod."] ?? ""
+          }));
+
+          state.filtered = state.all.slice();
+          popularFiltros();
+          renderTable();
+        })
+        .catch((err) => {
+          console.error(err);
+          els.resultsBody.innerHTML = `
+            <tr>
+              <td class="vv-empty-row" colspan="8">
+                Ocorreu um erro ao carregar a base de cartas contempladas. Tente novamente mais tarde.
+              </td>
+            </tr>`;
+          els.resultsCount.textContent = "Erro ao carregar dados.";
+        });
+    }
+
+    function popularFiltros() {
+      const segmentos = [...new Set(state.all.map((i) => i.segmento).filter(Boolean))].sort();
+      const admins = [...new Set(state.all.map((i) => i.administradora).filter(Boolean))].sort();
+
+      segmentos.forEach((seg) => {
+        const opt = document.createElement("option");
+        opt.value = seg;
+        opt.textContent = seg;
+        els.segmento.appendChild(opt);
+      });
+
+      admins.forEach((ad) => {
+        const opt = document.createElement("option");
+        opt.value = ad;
+        opt.textContent = ad;
+        els.admin.appendChild(opt);
+      });
+    }
+
+    function getNumberValue(input) {
+      if (!input.value) return null;
+      const n = Number(input.value.toString().replace(",", "."));
+      return Number.isNaN(n) ? null : n;
+    }
+
+    function aplicarFiltros() {
+      const seg = els.segmento.value;
+      const adm = els.admin.value;
+      const cartaMin = getNumberValue(els.cartaMin);
+      const cartaMax = getNumberValue(els.cartaMax);
+      const parcelaMin = getNumberValue(els.parcelaMin);
+      const parcelaMax = getNumberValue(els.parcelaMax);
+
+      state.filtered = state.all.filter((item) => {
+        if (seg && item.segmento !== seg) return false;
+        if (adm && item.administradora !== adm) return false;
+        if (cartaMin != null && item.credito < cartaMin) return false;
+        if (cartaMax != null && item.credito > cartaMax) return false;
+        if (parcelaMin != null && item.valor_parcela < parcelaMin) return false;
+        if (parcelaMax != null && item.valor_parcela > parcelaMax) return false;
+        return true;
+      });
+
+      renderTable();
+    }
+
+    function limparFiltros() {
+      els.segmento.value = "";
+      els.admin.value = "";
+      els.cartaMin.value = "";
+      els.cartaMax.value = "";
+      els.parcelaMin.value = "";
+      els.parcelaMax.value = "";
+      state.filtered = state.all.slice();
+      renderTable();
+    }
+
+    function getSelectedItems() {
+      const ids = state.selectedIds;
+      if (!ids.size) return [];
+      return state.all.filter((item) => ids.has(item.id));
+    }
+
+    function buildSelectionText() {
+      const selecionadas = getSelectedItems();
+      if (!selecionadas.length) {
+        return "Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna \"Sel.\" para ver o resumo aqui.";
+      }
+
+      const segmentos = [...new Set(selecionadas.map((i) => i.segmento).filter(Boolean))];
+      const admins = [...new Set(selecionadas.map((i) => i.administradora).filter(Boolean))];
+
+      const totalCredito = selecionadas.reduce((sum, i) => sum + (i.credito || 0), 0);
+      const totalEntrada = selecionadas.reduce((sum, i) => sum + (i.entrada || 0), 0);
+
+      const linhas = [];
+
+      if (admins.length === 1) {
+        linhas.push(`Administradora: ${admins[0]}`);
+      } else if (admins.length > 1) {
+        linhas.push("Administradoras: " + admins.join(", "));
+      }
+
+      if (segmentos.length === 1) {
+        linhas.push(`Segmento: ${segmentos[0]}`);
+      } else if (segmentos.length > 1) {
+        linhas.push("Segmentos: " + segmentos.join(", "));
+      }
+
+      if (linhas.length) linhas.push("");
+
+      linhas.push(`${selecionadas.length} carta(s) selecionada(s):`);
+      selecionadas.forEach((item) => {
+        const codigo = item.codigo || item.id;
+        linhas.push(`${codigo} - ${formatCurrency(item.credito)}`);
+      });
+
+      linhas.push("");
+      linhas.push(`Crédito total: ${formatCurrency(totalCredito)}`);
+      linhas.push(`Entrada total: ${formatCurrency(totalEntrada)}`);
+      linhas.push("");
+      linhas.push("Condições de parcelas (por carta):");
+
+      selecionadas.forEach((item) => {
+        const codigo = item.codigo || item.id;
+        linhas.push(
+          `${codigo}: ${item.parcelas}x de ${formatCurrency(item.valor_parcela)}`
+        );
+      });
+
+      return linhas.join("\n");
+    }
+
+    function atualizarResumoSelecao() {
+      els.selectionSummary.textContent = buildSelectionText();
+    }
+
+    function renderTable() {
+      if (!state.filtered.length) {
+        els.resultsBody.innerHTML = `
+          <tr>
+            <td class="vv-empty-row" colspan="8">
+              Nenhuma carta encontrada com os filtros atuais. Ajuste os parâmetros e tente novamente.
+            </td>
+          </tr>`;
+      } else {
+        els.resultsBody.innerHTML = "";
+        state.filtered.forEach((item) => {
+          const isSelected = state.selectedIds.has(item.id);
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td class="vv-center">
+              <input type="checkbox" class="vv-select-card" ${isSelected ? "checked" : ""} />
+            </td>
+            <td>
+              <span class="vv-tag">${item.segmento}</span>
+            </td>
+            <td>
+              <span class="vv-admin">${item.administradora}</span>
+            </td>
+            <td class="vv-money">${formatCurrency(item.credito)}</td>
+            <td class="vv-money">${formatCurrency(item.entrada)}</td>
+            <td>${item.parcelas || "-"}</td>
+            <td class="vv-money">${formatCurrency(item.valor_parcela)}</td>
+            <td>
+              <button class="vv-btn-action" type="button">
+                Quero avaliar esta carta
+              </button>
+            </td>
+          `;
+
+          const checkbox = tr.querySelector(".vv-select-card");
+          checkbox.addEventListener("change", (evt) => {
+            if (evt.target.checked) {
+              state.selectedIds.add(item.id);
+            } else {
+              state.selectedIds.delete(item.id);
+            }
+            atualizarResumoSelecao();
+          });
+
+          const btnAction = tr.querySelector(".vv-btn-action");
+          btnAction.addEventListener("click", () => {
+            const texto = construirTextoWhatsSingle(item);
+            abrirWhatsApp(texto);
+          });
+
+          els.resultsBody.appendChild(tr);
+        });
+      }
+
+      els.resultsCount.textContent =
+        `${state.filtered.length} de ${state.all.length} cartas visíveis nos filtros atuais.`;
+
+      atualizarResumoSelecao();
+    }
+
+    function construirTextoWhatsSingle(item) {
+      const codigo = item.codigo || item.id;
+      return [
+        "Olá! Encontrei esta carta contemplada no site da Vellavet e gostaria de avaliar a reserva:",
+        "",
+        `Código: ${codigo}`,
+        `Segmento: ${item.segmento}`,
+        `Administradora: ${item.administradora}`,
+        `Crédito: ${formatCurrency(item.credito)}`,
+        `Entrada: ${formatCurrency(item.entrada)}`,
+        `Parcelas: ${item.parcelas}x de ${formatCurrency(item.valor_parcela)}`,
+        "",
+        "Pode me ajudar com mais detalhes e simulações?"
+      ].join("\n");
+    }
+
+    function abrirWhatsApp(mensagem) {
+      if (!+5511994151000) return;
+      const url = `https://wa.me/${+5511994151000}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, "_blank");
+    }
+
+    function downloadCSV() {
+      if (!state.filtered.length) return;
+
+      const header = [
+        "Codigo",
+        "Segmento",
+        "Administradora",
+        "Credito",
+        "Entrada",
+        "Parcelas",
+        "Valor_Parcela"
+      ];
+
+      const linhas = state.filtered.map((item) => [
+        (item.codigo || item.id || "").toString(),
+        (item.segmento || "").toString(),
+        (item.administradora || "").toString(),
+        item.credito ?? "",
+        item.entrada ?? "",
+        item.parcelas ?? "",
+        item.valor_parcela ?? ""
+      ]);
+
+      const csvContent = [header, ...linhas]
+        .map((row) =>
+          row
+            .map((campo) => {
+              if (campo == null) return "";
+              const texto = campo.toString().replace(/"/g, '""');
+              return `"${texto}"`;
+            })
+            .join(";")
+        )
+        .join("\n");
+
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "cartas_contempladas_vellavet.csv";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+
+    // Eventos principais
+    els.btnApply.addEventListener("click", aplicarFiltros);
+    els.btnClear.addEventListener("click", limparFiltros);
+    els.btnCsv.addEventListener("click", downloadCSV);
+    els.btnWhats.addEventListener("click", () => {
+      const texto = "Olá! Gostaria de falar com a equipe Vellavet sobre cartas de consórcio contempladas.";
+      abrirWhatsApp(texto);
+    });
+
+    els.btnCopySelection.addEventListener("click", () => {
+      const texto = buildSelectionText();
+      if (!navigator.clipboard) {
+        alert("Copie o texto manualmente na área abaixo.");
+        return;
+      }
+      navigator.clipboard.writeText(texto)
+        .then(() => {
+          alert("Resumo copiado com sucesso. Agora é só colar onde quiser.");
+        })
+        .catch(() => {
+          alert("Não foi possível copiar automaticamente. Copie manualmente o resumo.");
+        });
+    });
+
+    els.btnWhatsSelection.addEventListener("click", () => {
+      const texto = buildSelectionText();
+      if (!getSelectedItems().length) {
+        alert("Selecione pelo menos uma carta na tabela antes de reservar via WhatsApp.");
+        return;
+      }
+      const mensagem = texto +
+        "\n\nEncontrei essas cartas contempladas no site da Vellavet e gostaria de avaliar a reserva.";
+      abrirWhatsApp(mensagem);
+    });
+
+    // Inicialização
+    loadData();
+  </script>
+</body>
+</html>
