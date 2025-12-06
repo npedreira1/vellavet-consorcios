@@ -1,0 +1,1930 @@
+[
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 110000.0,
+    "entrada": 58350.0,
+    "parcelas": 155,
+    "valor_parcela": 798.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 156000.0,
+    "entrada": 81260.0,
+    "parcelas": 150,
+    "valor_parcela": 1117.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 304000.0,
+    "entrada": 164840.0,
+    "parcelas": 58,
+    "valor_parcela": 3849.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 306000.0,
+    "entrada": 175010.0,
+    "parcelas": 162,
+    "valor_parcela": 2005.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 345000.0,
+    "entrada": 208325.0,
+    "parcelas": 147,
+    "valor_parcela": 2658.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 452000.0,
+    "entrada": 257420.0,
+    "parcelas": 162,
+    "valor_parcela": 3136.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 555000.0,
+    "entrada": 292175.0,
+    "parcelas": 174,
+    "valor_parcela": 3505.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 600000.0,
+    "entrada": 340000.0,
+    "parcelas": 162,
+    "valor_parcela": 4184.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 655000.0,
+    "entrada": 347675.0,
+    "parcelas": 175,
+    "valor_parcela": 4234.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 763000.0,
+    "entrada": 453855.0,
+    "parcelas": 57,
+    "valor_parcela": 9358.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 915000.0,
+    "entrada": 506775.0,
+    "parcelas": 55,
+    "valor_parcela": 11524.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 143490.0,
+    "entrada": 82096.65,
+    "parcelas": 145,
+    "valor_parcela": 1072.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 146490.0,
+    "entrada": 80351.65,
+    "parcelas": 161,
+    "valor_parcela": 1132.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 164990.0,
+    "entrada": 97924.15,
+    "parcelas": 147,
+    "valor_parcela": 1262.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 168490.0,
+    "entrada": 92221.65,
+    "parcelas": 192,
+    "valor_parcela": 1018.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 183990.0,
+    "entrada": 106539.15,
+    "parcelas": 145,
+    "valor_parcela": 1398.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 300990.0,
+    "entrada": 162484.15,
+    "parcelas": 187,
+    "valor_parcela": 1956.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 111000.0,
+    "entrada": 61335.0,
+    "parcelas": 181,
+    "valor_parcela": 740.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 145500.0,
+    "entrada": 81367.5,
+    "parcelas": 124,
+    "valor_parcela": 851.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 145800.0,
+    "entrada": 73293.0,
+    "parcelas": 159,
+    "valor_parcela": 1120.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 148000.0,
+    "entrada": 83480.0,
+    "parcelas": 159,
+    "valor_parcela": 1048.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 102000.0,
+    "entrada": 50170.0,
+    "parcelas": 176,
+    "valor_parcela": 727.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 103000.0,
+    "entrada": 50255.0,
+    "parcelas": 171,
+    "valor_parcela": 736.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 171000.0,
+    "entrada": 88335.0,
+    "parcelas": 169,
+    "valor_parcela": 1190.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "BRADESCO",
+    "credito": 118000.0,
+    "entrada": 67757.37,
+    "parcelas": 134,
+    "valor_parcela": 727.37
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 128000.5,
+    "entrada": 66870.0425,
+    "parcelas": 47,
+    "valor_parcela": 2380.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 154300.5,
+    "entrada": 88105.5425,
+    "parcelas": 43,
+    "valor_parcela": 3403.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 162170.5,
+    "entrada": 98074.4925,
+    "parcelas": 31,
+    "valor_parcela": 4217.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 306837.5,
+    "entrada": 106071.1875,
+    "parcelas": 28,
+    "valor_parcela": 12343.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 307010.5,
+    "entrada": 106085.8925,
+    "parcelas": 28,
+    "valor_parcela": 12206.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 69320.0,
+    "entrada": 35792.2,
+    "parcelas": 134,
+    "valor_parcela": 481.47
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 71000.0,
+    "entrada": 36935.0,
+    "parcelas": 134,
+    "valor_parcela": 479.13
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 87500.0,
+    "entrada": 44337.5,
+    "parcelas": 135,
+    "valor_parcela": 571.61
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 96700.0,
+    "entrada": 51119.5,
+    "parcelas": 170,
+    "valor_parcela": 788.1
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 101350.0,
+    "entrada": 53514.75,
+    "parcelas": 139,
+    "valor_parcela": 776.04
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 120900.0,
+    "entrada": 70176.5,
+    "parcelas": 145,
+    "valor_parcela": 795.12
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 142900.0,
+    "entrada": 77046.5,
+    "parcelas": 135,
+    "valor_parcela": 1034.75
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 196050.0,
+    "entrada": 101564.25,
+    "parcelas": 137,
+    "valor_parcela": 1716.24
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 72000.0,
+    "entrada": 42120.0,
+    "parcelas": 148,
+    "valor_parcela": 592.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 103000.0,
+    "entrada": 60755.0,
+    "parcelas": 156,
+    "valor_parcela": 713.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 109000.0,
+    "entrada": 64265.0,
+    "parcelas": 146,
+    "valor_parcela": 830.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 116000.0,
+    "entrada": 69860.0,
+    "parcelas": 141,
+    "valor_parcela": 768.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 202600.0,
+    "entrada": 115221.0,
+    "parcelas": 138,
+    "valor_parcela": 1456.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 340000.0,
+    "entrada": 190900.0,
+    "parcelas": 137,
+    "valor_parcela": 2490.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 113000.0,
+    "entrada": 65505.0,
+    "parcelas": 191,
+    "valor_parcela": 837.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 135000.0,
+    "entrada": 68475.0,
+    "parcelas": 47,
+    "valor_parcela": 2831.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 226500.0,
+    "entrada": 128252.5,
+    "parcelas": 46,
+    "valor_parcela": 4120.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 235600.0,
+    "entrada": 127026.0,
+    "parcelas": 45,
+    "valor_parcela": 4751.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 57034.47,
+    "entrada": 36400.01995,
+    "parcelas": 150,
+    "valor_parcela": 466.89
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 74481.63,
+    "entrada": 50291.04855,
+    "parcelas": 132,
+    "valor_parcela": 478.36
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "ITAÚ",
+    "credito": 301547.81,
+    "entrada": 171331.56385,
+    "parcelas": 234,
+    "valor_parcela": 1619.4
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 57244.22,
+    "entrada": 30965.7587,
+    "parcelas": 172,
+    "valor_parcela": 317.88
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 59172.43,
+    "entrada": 31429.65655,
+    "parcelas": 157,
+    "valor_parcela": 445.68
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 65162.51,
+    "entrada": 34638.81335,
+    "parcelas": 165,
+    "valor_parcela": 457.12
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 66095.67,
+    "entrada": 35018.13195,
+    "parcelas": 167,
+    "valor_parcela": 389.79
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 83502.01,
+    "entrada": 45197.67085,
+    "parcelas": 162,
+    "valor_parcela": 572.54
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 85488.0,
+    "entrada": 43766.48,
+    "parcelas": 151,
+    "valor_parcela": 639.79
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 86643.93,
+    "entrada": 46664.73405,
+    "parcelas": 172,
+    "valor_parcela": 560.47
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 88799.77,
+    "entrada": 48147.98045,
+    "parcelas": 156,
+    "valor_parcela": 608.62
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 93201.72,
+    "entrada": 48922.1462,
+    "parcelas": 172,
+    "valor_parcela": 615.48
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 95413.1,
+    "entrada": 64110.1135,
+    "parcelas": 162,
+    "valor_parcela": 361.1
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 102543.61,
+    "entrada": 54916.20685,
+    "parcelas": 157,
+    "valor_parcela": 713.54
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 105617.2,
+    "entrada": 54977.462,
+    "parcelas": 199,
+    "valor_parcela": 625.65
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 106060.27,
+    "entrada": 57615.12295,
+    "parcelas": 198,
+    "valor_parcela": 623.85
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 106984.21,
+    "entrada": 57193.65785,
+    "parcelas": 200,
+    "valor_parcela": 619.19
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 107863.37,
+    "entrada": 57668.38645,
+    "parcelas": 226,
+    "valor_parcela": 494.27
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 108143.58,
+    "entrada": 58192.2043,
+    "parcelas": 226,
+    "valor_parcela": 503.47
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 110148.59,
+    "entrada": 58862.63015,
+    "parcelas": 159,
+    "valor_parcela": 736.22
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 150818.56,
+    "entrada": 81519.5776,
+    "parcelas": 238,
+    "valor_parcela": 723.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 157500.72,
+    "entrada": 85387.5612,
+    "parcelas": 185,
+    "valor_parcela": 951.23
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 165426.8,
+    "entrada": 87361.278,
+    "parcelas": 153,
+    "valor_parcela": 1306.52
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 173648.99,
+    "entrada": 93860.16415,
+    "parcelas": 190,
+    "valor_parcela": 1054.02
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 205087.21,
+    "entrada": 111532.41285,
+    "parcelas": 209,
+    "valor_parcela": 1102.25
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 218676.04,
+    "entrada": 115187.4634,
+    "parcelas": 138,
+    "valor_parcela": 1578.06
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 250628.74,
+    "entrada": 139503.4429,
+    "parcelas": 228,
+    "valor_parcela": 1236.25
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 314538.73,
+    "entrada": 195635.79205,
+    "parcelas": 145,
+    "valor_parcela": 1859.74
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 794203.46,
+    "entrada": 422507.2941,
+    "parcelas": 198,
+    "valor_parcela": 4199.69
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 82552.0,
+    "entrada": 45689.32,
+    "parcelas": 156,
+    "valor_parcela": 546.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 106950.0,
+    "entrada": 60543.25,
+    "parcelas": 152,
+    "valor_parcela": 775.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 175808.0,
+    "entrada": 95953.28,
+    "parcelas": 153,
+    "valor_parcela": 1390.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 591865.0,
+    "entrada": 340315.275,
+    "parcelas": 155,
+    "valor_parcela": 3530.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "MYCON",
+    "credito": 78593.0,
+    "entrada": 43180.405,
+    "parcelas": 156,
+    "valor_parcela": 534.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 106658.5,
+    "entrada": 54055.9725,
+    "parcelas": 183,
+    "valor_parcela": 509.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 135994.0,
+    "entrada": 68759.79000000001,
+    "parcelas": 175,
+    "valor_parcela": 952.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 160859.0,
+    "entrada": 84530.065,
+    "parcelas": 188,
+    "valor_parcela": 932.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 211652.0,
+    "entrada": 101607.82,
+    "parcelas": 76,
+    "valor_parcela": 2745.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 556276.72,
+    "entrada": 292169.6812,
+    "parcelas": 142,
+    "valor_parcela": 4173.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 91500.0,
+    "entrada": 49677.5,
+    "parcelas": 172,
+    "valor_parcela": 499.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 100000.0,
+    "entrada": 52400.0,
+    "parcelas": 235,
+    "valor_parcela": 527.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 210000.0,
+    "entrada": 97750.0,
+    "parcelas": 120,
+    "valor_parcela": 1819.5
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 521000.0,
+    "entrada": 303185.0,
+    "parcelas": 148,
+    "valor_parcela": 3270.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 524000.0,
+    "entrada": 303440.0,
+    "parcelas": 129,
+    "valor_parcela": 3385.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 213000.0,
+    "entrada": 117105.0,
+    "parcelas": 188,
+    "valor_parcela": 1360.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 235000.0,
+    "entrada": 136975.0,
+    "parcelas": 148,
+    "valor_parcela": 1528.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 243000.0,
+    "entrada": 145655.0,
+    "parcelas": 150,
+    "valor_parcela": 1550.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 251000.0,
+    "entrada": 136335.0,
+    "parcelas": 176,
+    "valor_parcela": 1657.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 297000.0,
+    "entrada": 163245.0,
+    "parcelas": 177,
+    "valor_parcela": 1906.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 322000.0,
+    "entrada": 166370.0,
+    "parcelas": 176,
+    "valor_parcela": 1905.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 375000.0,
+    "entrada": 213875.0,
+    "parcelas": 236,
+    "valor_parcela": 1820.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 378000.0,
+    "entrada": 211130.0,
+    "parcelas": 177,
+    "valor_parcela": 2371.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 447000.0,
+    "entrada": 262995.0,
+    "parcelas": 134,
+    "valor_parcela": 2949.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 502000.0,
+    "entrada": 299670.0,
+    "parcelas": 148,
+    "valor_parcela": 3153.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 505000.0,
+    "entrada": 274925.0,
+    "parcelas": 176,
+    "valor_parcela": 3092.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 532000.0,
+    "entrada": 284220.0,
+    "parcelas": 144,
+    "valor_parcela": 4245.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 600000.0,
+    "entrada": 346000.0,
+    "parcelas": 104,
+    "valor_parcela": 4331.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 680000.0,
+    "entrada": 372800.0,
+    "parcelas": 188,
+    "valor_parcela": 4182.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 739000.0,
+    "entrada": 397815.0,
+    "parcelas": 176,
+    "valor_parcela": 4570.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 800000.0,
+    "entrada": 457000.0,
+    "parcelas": 145,
+    "valor_parcela": 5900.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 830000.0,
+    "entrada": 489550.0,
+    "parcelas": 176,
+    "valor_parcela": 5513.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 835000.0,
+    "entrada": 495975.0,
+    "parcelas": 105,
+    "valor_parcela": 6410.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 904000.0,
+    "entrada": 528840.0,
+    "parcelas": 117,
+    "valor_parcela": 6151.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 196000.0,
+    "entrada": 106560.0,
+    "parcelas": 199,
+    "valor_parcela": 1017.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 266000.0,
+    "entrada": 142510.0,
+    "parcelas": 199,
+    "valor_parcela": 1456.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 384000.0,
+    "entrada": 227640.0,
+    "parcelas": 144,
+    "valor_parcela": 2472.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 475000.0,
+    "entrada": 267275.0,
+    "parcelas": 182,
+    "valor_parcela": 2670.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 490000.0,
+    "entrada": 287550.0,
+    "parcelas": 194,
+    "valor_parcela": 3047.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 514794.0,
+    "entrada": 297657.49,
+    "parcelas": 185,
+    "valor_parcela": 3257.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 570000.0,
+    "entrada": 318350.0,
+    "parcelas": 183,
+    "valor_parcela": 3320.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 625631.0,
+    "entrada": 343078.635,
+    "parcelas": 178,
+    "valor_parcela": 4202.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 693789.0,
+    "entrada": 386872.065,
+    "parcelas": 165,
+    "valor_parcela": 4760.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 750000.0,
+    "entrada": 429650.0,
+    "parcelas": 183,
+    "valor_parcela": 4644.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 803000.0,
+    "entrada": 448155.0,
+    "parcelas": 179,
+    "valor_parcela": 4706.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 860000.0,
+    "entrada": 473000.0,
+    "parcelas": 174,
+    "valor_parcela": 5588.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 950363.0,
+    "entrada": 540680.855,
+    "parcelas": 181,
+    "valor_parcela": 6160.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 104135.0,
+    "entrada": 60751.475,
+    "parcelas": 103,
+    "valor_parcela": 939.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 105090.0,
+    "entrada": 56832.65,
+    "parcelas": 175,
+    "valor_parcela": 752.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 106390.0,
+    "entrada": 55943.15,
+    "parcelas": 188,
+    "valor_parcela": 635.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 134990.0,
+    "entrada": 80374.15,
+    "parcelas": 122,
+    "valor_parcela": 840.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 140490.0,
+    "entrada": 75841.65,
+    "parcelas": 188,
+    "valor_parcela": 951.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 159090.0,
+    "entrada": 80422.65,
+    "parcelas": 161,
+    "valor_parcela": 1156.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 160000.0,
+    "entrada": 80500.0,
+    "parcelas": 234,
+    "valor_parcela": 928.35
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 178290.0,
+    "entrada": 106054.65,
+    "parcelas": 105,
+    "valor_parcela": 1309.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 204570.0,
+    "entrada": 110288.45,
+    "parcelas": 76,
+    "valor_parcela": 2746.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 223990.0,
+    "entrada": 132939.15,
+    "parcelas": 175,
+    "valor_parcela": 1476.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 251990.0,
+    "entrada": 137319.15,
+    "parcelas": 187,
+    "valor_parcela": 1693.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 263990.0,
+    "entrada": 148339.15,
+    "parcelas": 167,
+    "valor_parcela": 1908.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 269990.0,
+    "entrada": 157849.15,
+    "parcelas": 180,
+    "valor_parcela": 1650.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 301990.0,
+    "entrada": 171569.15,
+    "parcelas": 235,
+    "valor_parcela": 1518.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 388230.0,
+    "entrada": 216899.55,
+    "parcelas": 141,
+    "valor_parcela": 2646.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 399990.0,
+    "entrada": 232899.15,
+    "parcelas": 188,
+    "valor_parcela": 2053.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 474990.0,
+    "entrada": 270274.15,
+    "parcelas": 182,
+    "valor_parcela": 2671.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 502990.0,
+    "entrada": 283654.15,
+    "parcelas": 187,
+    "valor_parcela": 3130.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 580105.0,
+    "entrada": 335208.925,
+    "parcelas": 139,
+    "valor_parcela": 3804.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 599990.0,
+    "entrada": 332899.15,
+    "parcelas": 188,
+    "valor_parcela": 3746.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 704990.0,
+    "entrada": 393824.15,
+    "parcelas": 185,
+    "valor_parcela": 4739.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 729990.0,
+    "entrada": 405949.15,
+    "parcelas": 139,
+    "valor_parcela": 4772.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 177300.0,
+    "entrada": 84570.5,
+    "parcelas": 152,
+    "valor_parcela": 1251.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 346750.0,
+    "entrada": 204973.75,
+    "parcelas": 151,
+    "valor_parcela": 2467.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 517000.0,
+    "entrada": 307945.0,
+    "parcelas": 150,
+    "valor_parcela": 3130.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 785246.0,
+    "entrada": 457645.91,
+    "parcelas": 129,
+    "valor_parcela": 4981.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 113000.0,
+    "entrada": 58605.0,
+    "parcelas": 148,
+    "valor_parcela": 792.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 125500.0,
+    "entrada": 58667.5,
+    "parcelas": 175,
+    "valor_parcela": 830.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 126600.0,
+    "entrada": 74261.0,
+    "parcelas": 94,
+    "valor_parcela": 1078.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 134100.0,
+    "entrada": 65148.5,
+    "parcelas": 92,
+    "valor_parcela": 1411.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 140000.0,
+    "entrada": 78900.0,
+    "parcelas": 199,
+    "valor_parcela": 726.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 170000.0,
+    "entrada": 91450.0,
+    "parcelas": 160,
+    "valor_parcela": 1057.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 179000.0,
+    "entrada": 84215.0,
+    "parcelas": 114,
+    "valor_parcela": 1821.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 200000.0,
+    "entrada": 94000.0,
+    "parcelas": 187,
+    "valor_parcela": 1342.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 205635.0,
+    "entrada": 112978.975,
+    "parcelas": 144,
+    "valor_parcela": 1663.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 300000.0,
+    "entrada": 166550.0,
+    "parcelas": 192,
+    "valor_parcela": 1863.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 300000.0,
+    "entrada": 164950.0,
+    "parcelas": 176,
+    "valor_parcela": 1906.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 314300.0,
+    "entrada": 173215.5,
+    "parcelas": 185,
+    "valor_parcela": 1912.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 561000.0,
+    "entrada": 292685.0,
+    "parcelas": 175,
+    "valor_parcela": 3464.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 626500.0,
+    "entrada": 305252.5,
+    "parcelas": 175,
+    "valor_parcela": 4220.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 530600.29,
+    "entrada": 266203.62465,
+    "parcelas": 171,
+    "valor_parcela": 3552.6
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 142974.57,
+    "entrada": 90184.11845000001,
+    "parcelas": 82,
+    "valor_parcela": 1183.6
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "PORTO SEGURO",
+    "credito": 426062.8,
+    "entrada": 223728.598,
+    "parcelas": 187,
+    "valor_parcela": 2748.12
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 118285.0,
+    "entrada": 56839.975,
+    "parcelas": 86,
+    "valor_parcela": 1342.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 677890.0,
+    "entrada": 308526.15,
+    "parcelas": 162,
+    "valor_parcela": 5489.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 304353.0,
+    "entrada": 165770.005,
+    "parcelas": 150,
+    "valor_parcela": 2732.44
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 114000.0,
+    "entrada": 52590.0,
+    "parcelas": 179,
+    "valor_parcela": 895.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 326000.0,
+    "entrada": 167610.0,
+    "parcelas": 143,
+    "valor_parcela": 2765.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 531000.0,
+    "entrada": 273135.0,
+    "parcelas": 160,
+    "valor_parcela": 3824.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 63460.0,
+    "entrada": 32304.1,
+    "parcelas": 196,
+    "valor_parcela": 559.99
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 64490.0,
+    "entrada": 32391.65,
+    "parcelas": 191,
+    "valor_parcela": 538.95
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 69480.0,
+    "entrada": 35805.8,
+    "parcelas": 162,
+    "valor_parcela": 652.92
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 74500.0,
+    "entrada": 37232.5,
+    "parcelas": 207,
+    "valor_parcela": 531.43
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 80515.0,
+    "entrada": 41743.775,
+    "parcelas": 203,
+    "valor_parcela": 467.7
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 80520.0,
+    "entrada": 41744.2,
+    "parcelas": 200,
+    "valor_parcela": 524.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 244000.0,
+    "entrada": 136740.0,
+    "parcelas": 132,
+    "valor_parcela": 1826.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 61790.93,
+    "entrada": 39017.23905,
+    "parcelas": 192,
+    "valor_parcela": 432.04
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 87277.78,
+    "entrada": 52917.1613,
+    "parcelas": 183,
+    "valor_parcela": 602.52
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 93561.36,
+    "entrada": 56977.06559999999,
+    "parcelas": 179,
+    "valor_parcela": 647.31
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 94822.04,
+    "entrada": 58975.5434,
+    "parcelas": 176,
+    "valor_parcela": 696.23
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 106200.78,
+    "entrada": 65098.4963,
+    "parcelas": 202,
+    "valor_parcela": 691.81
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 121760.66,
+    "entrada": 69698.9761,
+    "parcelas": 132,
+    "valor_parcela": 674.66
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 129285.41,
+    "entrada": 76043.13985,
+    "parcelas": 181,
+    "valor_parcela": 802.19
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "RODOBENS",
+    "credito": 472894.18,
+    "entrada": 275708.1853,
+    "parcelas": 182,
+    "valor_parcela": 3341.62
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 66537.0,
+    "entrada": 30028.795,
+    "parcelas": 203,
+    "valor_parcela": 346.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 66707.0,
+    "entrada": 31734.745,
+    "parcelas": 217,
+    "valor_parcela": 344.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 108387.0,
+    "entrada": 51593.545,
+    "parcelas": 223,
+    "valor_parcela": 544.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 117200.0,
+    "entrada": 44162.0,
+    "parcelas": 232,
+    "valor_parcela": 586.63
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 62000.0,
+    "entrada": 29270.0,
+    "parcelas": 227,
+    "valor_parcela": 343.78
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 67215.0,
+    "entrada": 32613.275,
+    "parcelas": 132,
+    "valor_parcela": 517.16
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 106700.0,
+    "entrada": 53969.5,
+    "parcelas": 121,
+    "valor_parcela": 793.1
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 112400.0,
+    "entrada": 56454.0,
+    "parcelas": 207,
+    "valor_parcela": 578.85
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 151154.0,
+    "entrada": 82748.09,
+    "parcelas": 119,
+    "valor_parcela": 1068.56
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 162107.0,
+    "entrada": 78679.095,
+    "parcelas": 177,
+    "valor_parcela": 989.98
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 115000.0,
+    "entrada": 64775.0,
+    "parcelas": 209,
+    "valor_parcela": 603.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 214000.0,
+    "entrada": 118190.0,
+    "parcelas": 101,
+    "valor_parcela": 1606.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 221000.0,
+    "entrada": 118685.0,
+    "parcelas": 169,
+    "valor_parcela": 1332.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 296000.0,
+    "entrada": 174160.0,
+    "parcelas": 76,
+    "valor_parcela": 2836.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 331000.0,
+    "entrada": 178135.0,
+    "parcelas": 169,
+    "valor_parcela": 1998.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 332000.0,
+    "entrada": 177220.0,
+    "parcelas": 208,
+    "valor_parcela": 1773.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 552000.0,
+    "entrada": 296820.0,
+    "parcelas": 169,
+    "valor_parcela": 3330.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 300000.0,
+    "entrada": 137400.0,
+    "parcelas": 77,
+    "valor_parcela": 3891.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 292410.0,
+    "entrada": 167754.85,
+    "parcelas": 81,
+    "valor_parcela": 2449.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 322750.0,
+    "entrada": 166333.75,
+    "parcelas": 118,
+    "valor_parcela": 2406.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 100600.0,
+    "entrada": 55451.0,
+    "parcelas": 205,
+    "valor_parcela": 529.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 116000.0,
+    "entrada": 58760.0,
+    "parcelas": 207,
+    "valor_parcela": 631.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "SANTANDER",
+    "credito": 208000.0,
+    "entrada": 106680.0,
+    "parcelas": 133,
+    "valor_parcela": 1484.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "YAMAHA",
+    "credito": 626000.0,
+    "entrada": 338210.0,
+    "parcelas": 186,
+    "valor_parcela": 3590.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "YAMAHA",
+    "credito": 122100.0,
+    "entrada": 69378.5,
+    "parcelas": 126,
+    "valor_parcela": 893.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "YAMAHA",
+    "credito": 176500.0,
+    "entrada": 98002.5,
+    "parcelas": 109,
+    "valor_parcela": 1499.0
+  },
+  {
+    "segmento": "Imóveis",
+    "administradora": "YAMAHA",
+    "credito": 209000.0,
+    "entrada": 113765.0,
+    "parcelas": 130,
+    "valor_parcela": 1653.0
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "ITAÚ",
+    "credito": 12393.1,
+    "entrada": 6889.094999999999,
+    "parcelas": 59,
+    "valor_parcela": 218.51
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "ITAÚ",
+    "credito": 12544.31,
+    "entrada": 3829.48415,
+    "parcelas": 53,
+    "valor_parcela": 308.33
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "ITAÚ",
+    "credito": 12761.93,
+    "entrada": 3315.84845,
+    "parcelas": 57,
+    "valor_parcela": 301.97
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "ITAÚ",
+    "credito": 12790.03,
+    "entrada": 3326.54145,
+    "parcelas": 56,
+    "valor_parcela": 301.04
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "ITAÚ",
+    "credito": 12845.96,
+    "entrada": 3355.4884,
+    "parcelas": 59,
+    "valor_parcela": 295.62
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "ITAÚ",
+    "credito": 13098.34,
+    "entrada": 3460.9261,
+    "parcelas": 48,
+    "valor_parcela": 363.23
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "ITAÚ",
+    "credito": 21071.74,
+    "entrada": 10232.869,
+    "parcelas": 41,
+    "valor_parcela": 481.31
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "ITAÚ",
+    "credito": 21592.62,
+    "entrada": 10888.2303,
+    "parcelas": 40,
+    "valor_parcela": 475.62
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "ITAÚ",
+    "credito": 21712.71,
+    "entrada": 11137.06915,
+    "parcelas": 31,
+    "valor_parcela": 586.06
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "ITAÚ",
+    "credito": 21862.77,
+    "entrada": 9297.735550000001,
+    "parcelas": 40,
+    "valor_parcela": 505.38
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "ITAÚ",
+    "credito": 22033.2,
+    "entrada": 10790.092,
+    "parcelas": 39,
+    "valor_parcela": 444.7
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "ITAÚ",
+    "credito": 23187.65,
+    "entrada": 12237.15125,
+    "parcelas": 40,
+    "valor_parcela": 557.66
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "ITAÚ",
+    "credito": 23341.14,
+    "entrada": 11722.4091,
+    "parcelas": 38,
+    "valor_parcela": 593.79
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "MYCON",
+    "credito": 14147.93,
+    "entrada": 7296.045450000001,
+    "parcelas": 36,
+    "valor_parcela": 297.13
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "MYCON",
+    "credito": 14147.93,
+    "entrada": 6663.85745,
+    "parcelas": 35,
+    "valor_parcela": 303.18
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "MYCON",
+    "credito": 14147.93,
+    "entrada": 7455.842950000001,
+    "parcelas": 34,
+    "valor_parcela": 302.67
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "MYCON",
+    "credito": 14147.93,
+    "entrada": 6930.065450000001,
+    "parcelas": 36,
+    "valor_parcela": 300.69
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "PORTO SEGURO",
+    "credito": 392781.36,
+    "entrada": 179269.06973397,
+    "parcelas": 102,
+    "valor_parcela": 3891.27
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "PORTO SEGURO",
+    "credito": 43290.81,
+    "entrada": 23322.54065,
+    "parcelas": 14,
+    "valor_parcela": 2053.06
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "PORTO SEGURO",
+    "credito": 43628.61,
+    "entrada": 24063.68965,
+    "parcelas": 12,
+    "valor_parcela": 2210.68
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "PORTO SEGURO",
+    "credito": 40108.87,
+    "entrada": 17496.76455,
+    "parcelas": 34,
+    "valor_parcela": 1808.04
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "PORTO SEGURO",
+    "credito": 63347.31,
+    "entrada": 34697.57515,
+    "parcelas": 46,
+    "valor_parcela": 570.73
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "PORTO SEGURO",
+    "credito": 40541.15,
+    "entrada": 10975.17475,
+    "parcelas": 22,
+    "valor_parcela": 2279.55
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "PORTO SEGURO",
+    "credito": 326589.19,
+    "entrada": 181078.29735,
+    "parcelas": 72,
+    "valor_parcela": 4025.21
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "SANTANDER",
+    "credito": 77816.26,
+    "entrada": 37430.42690000001,
+    "parcelas": 28,
+    "valor_parcela": 2320.14
+  },
+  {
+    "segmento": "Autos",
+    "administradora": "SANTANDER",
+    "credito": 77816.26,
+    "entrada": 37279.31690000001,
+    "parcelas": 28,
+    "valor_parcela": 2309.57
+  }
+]
