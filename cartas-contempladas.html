@@ -1,4 +1,4 @@
-html_code = r"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -387,7 +387,7 @@ html_code = r"""<!DOCTYPE html>
       font-size: 13px;
     }
 
-    /* SELEÇÃO / RESUMO */
+    /* SELEÇÃO / RESUMO (PAINEL GRANDE) */
 
     .vv-selection-panel {
       display: flex;
@@ -436,6 +436,84 @@ html_code = r"""<!DOCTYPE html>
       justify-content: center;
       gap: 8px;
       min-width: 190px;
+    }
+
+    /* POPUP FLUTUANTE DE SELEÇÃO */
+
+    .vv-floating-selection {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      max-width: 360px;
+      width: 100%;
+      z-index: 9999;
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.22), rgba(15, 23, 42, 0.98));
+      border-radius: 18px;
+      border: 1px solid rgba(34, 197, 94, 0.7);
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.95);
+      padding: 10px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      backdrop-filter: blur(10px);
+    }
+
+    .vv-floating-hidden {
+      display: none;
+    }
+
+    .vv-floating-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .vv-floating-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #bbf7d0;
+    }
+
+    .vv-floating-close {
+      border: none;
+      background: transparent;
+      color: #9ca3af;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 0 4px;
+      line-height: 1;
+    }
+
+    .vv-floating-close:hover {
+      color: #e5e7eb;
+    }
+
+    .vv-floating-summary {
+      font-size: 11px;
+      color: var(--vv-muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      white-space: pre-wrap;
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 10px;
+      padding: 6px 8px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    .vv-floating-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .vv-floating-actions .vv-btn {
+      padding: 6px 10px;
+      font-size: 11px;
+      box-shadow: none;
+      min-width: auto;
     }
 
     /* FOOTER CTA */
@@ -511,6 +589,14 @@ html_code = r"""<!DOCTYPE html>
       .vv-results-table td {
         padding: 8px 10px;
       }
+
+      .vv-floating-selection {
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        bottom: 12px;
+        max-width: 94%;
+      }
     }
   </style>
 </head>
@@ -524,7 +610,7 @@ html_code = r"""<!DOCTYPE html>
           <span class="vv-badge">Consórcio Vellavet</span>
           <h1 class="vv-title">Cartas contempladas com curadoria especializada</h1>
           <p class="vv-subtitle">
-            Utilize os filtros para refinar. A disponibilidade é confirmada caso a caso com a administradora e
+            Utilize os filtros para refinar. A disponibilidade é validada caso a caso com a administradora e
             pode mudar sem aviso prévio.
           </p>
         </div>
@@ -621,12 +707,12 @@ html_code = r"""<!DOCTYPE html>
           </table>
         </div>
 
-        <!-- RESUMO DE SELEÇÃO -->
+        <!-- RESUMO DE SELEÇÃO (PAINEL GRANDE) -->
         <div class="vv-selection-panel">
           <div class="vv-selection-text">
             <p class="vv-selection-title">Resumo das cartas selecionadas</p>
             <p class="vv-selection-note">
-              Selecione uma ou mais cartas na tabela para somar o crédito e a entrada e gerar um texto pronto.
+              Selecione uma ou mais cartas na tabela para somar o crédito e a entrada e gerar um texto pronto para envio.
             </p>
             <pre id="selection-summary" class="vv-selection-summary">
 Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel." para ver o resumo aqui.</pre>
@@ -641,10 +727,30 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
           </div>
         </div>
 
+        <!-- POPUP FLUTUANTE DE SELEÇÃO -->
+        <div id="floating-selection" class="vv-floating-selection vv-floating-hidden">
+          <div class="vv-floating-header">
+            <span class="vv-floating-title">Resumo das cartas selecionadas</span>
+            <button id="btn-floating-close" type="button" class="vv-floating-close" aria-label="Fechar resumo">
+              ✕
+            </button>
+          </div>
+          <pre id="floating-selection-summary" class="vv-floating-summary">
+Nenhuma carta selecionada no momento.</pre>
+          <div class="vv-floating-actions">
+            <button id="btn-floating-copy" type="button" class="vv-btn vv-btn-outline">
+              Copiar
+            </button>
+            <button id="btn-floating-whats" type="button" class="vv-btn vv-btn-secondary">
+              WhatsApp
+            </button>
+          </div>
+        </div>
+
         <!-- FOOTER CTA -->
         <div class="vv-footer-actions">
           <p class="vv-footer-text">
-            Quer uma análise guiada por especialista? A Vellavet atua como curadoria independente,
+            Quer uma leitura guiada por especialista? A Vellavet atua como curadoria independente,
             cruzando taxa de administração, prazo, segmento, uso e impacto no seu capital de giro.
           </p>
 
@@ -686,7 +792,12 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       btnWhatsSelection: document.getElementById("btn-whats-selection"),
       resultsBody: document.getElementById("results-body"),
       resultsCount: document.getElementById("results-count"),
-      selectionSummary: document.getElementById("selection-summary")
+      selectionSummary: document.getElementById("selection-summary"),
+      floatingPanel: document.getElementById("floating-selection"),
+      floatingSummary: document.getElementById("floating-selection-summary"),
+      btnFloatingClose: document.getElementById("btn-floating-close"),
+      btnFloatingCopy: document.getElementById("btn-floating-copy"),
+      btnFloatingWhats: document.getElementById("btn-floating-whats")
     };
 
     function formatCurrency(value) {
@@ -707,15 +818,21 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
           return res.json();
         })
         .then((data) => {
-          // Garante um ID único por carta
+          // Garante um ID único por carta e ajusta campos
           state.all = data.map((item, index) => ({
-            id: item.id ?? item.codigo ?? item.cod ?? `carta-${index + 1}`,
+            id: item.id ?? item.codigo ?? item.cod ?? ("carta-" + (index + 1)),
             segmento: item.segmento ?? item.Segmento ?? item.segment ?? "Imóveis",
             administradora: item.administradora ?? item.Adm ?? item.admin ?? "Administradora",
             credito: Number(item.credito ?? item.Credito ?? item["Crédito"] ?? 0),
             entrada: Number(item.entrada ?? item.Entrada ?? 0),
             parcelas: Number(item.parcelas ?? item.Prazo ?? 0),
-            valor_parcela: Number(item.valor_parcela ?? item["Valor Parcela"] ?? item.custo_mensal ?? item["CUSTO MENSAL"] ?? 0),
+            valor_parcela: Number(
+              item.valor_parcela ??
+              item["Valor Parcela"] ??
+              item.custo_mensal ??
+              item["CUSTO MENSAL"] ??
+              0
+            ),
             codigo: item.codigo ?? item.cod ?? item["Cod."] ?? ""
           }));
 
@@ -725,19 +842,20 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
         })
         .catch((err) => {
           console.error(err);
-          els.resultsBody.innerHTML = `
-            <tr>
-              <td class="vv-empty-row" colspan="8">
-                Ocorreu um erro ao carregar a base de cartas contempladas. Tente novamente mais tarde.
-              </td>
-            </tr>`;
+          els.resultsBody.innerHTML = (
+            '<tr>' +
+            '<td class="vv-empty-row" colspan="8">' +
+            'Ocorreu um erro ao carregar a base de cartas contempladas. Tente novamente mais tarde.' +
+            '</td>' +
+            '</tr>'
+          );
           els.resultsCount.textContent = "Erro ao carregar dados.";
         });
     }
 
     function popularFiltros() {
-      const segmentos = [...new Set(state.all.map((i) => i.segmento).filter(Boolean))].sort();
-      const admins = [...new Set(state.all.map((i) => i.administradora).filter(Boolean))].sort();
+      const segmentos = Array.from(new Set(state.all.map((i) => i.segmento).filter(Boolean))).sort();
+      const admins = Array.from(new Set(state.all.map((i) => i.administradora).filter(Boolean))).sort();
 
       segmentos.forEach((seg) => {
         const opt = document.createElement("option");
@@ -798,93 +916,120 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       return state.all.filter((item) => ids.has(item.id));
     }
 
+    // TEXTO PREMIUM "VOZ VELLAVET"
     function buildSelectionText() {
       const selecionadas = getSelectedItems();
       if (!selecionadas.length) {
-        return "Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna \"Sel.\" para ver o resumo aqui.";
+        return 'Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel." para visualizar o resumo.';
       }
 
-      const segmentos = [...new Set(selecionadas.map((i) => i.segmento).filter(Boolean))];
-      const admins = [...new Set(selecionadas.map((i) => i.administradora).filter(Boolean))];
+      const segmentos = Array.from(new Set(selecionadas.map((i) => i.segmento).filter(Boolean)));
+      const admins = Array.from(new Set(selecionadas.map((i) => i.administradora).filter(Boolean)));
 
       const totalCredito = selecionadas.reduce((sum, i) => sum + (i.credito || 0), 0);
       const totalEntrada = selecionadas.reduce((sum, i) => sum + (i.entrada || 0), 0);
 
       const linhas = [];
 
+      linhas.push("Resumo consolidado das cartas contempladas selecionadas via Vellavet:");
+      linhas.push("");
+
       if (admins.length === 1) {
-        linhas.push(`Administradora: ${admins[0]}`);
+        linhas.push("Administradora envolvida: " + admins[0]);
       } else if (admins.length > 1) {
-        linhas.push("Administradoras: " + admins.join(", "));
+        linhas.push("Administradoras envolvidas: " + admins.join(", "));
       }
 
       if (segmentos.length === 1) {
-        linhas.push(`Segmento: ${segmentos[0]}`);
+        linhas.push("Segmento: " + segmentos[0]);
       } else if (segmentos.length > 1) {
         linhas.push("Segmentos: " + segmentos.join(", "));
       }
 
       if (linhas.length) linhas.push("");
 
-      linhas.push(`${selecionadas.length} carta(s) selecionada(s):`);
+      linhas.push(selecionadas.length + " carta(s) selecionada(s):");
       selecionadas.forEach((item) => {
         const codigo = item.codigo || item.id;
-        linhas.push(`${codigo} - ${formatCurrency(item.credito)}`);
+        linhas.push("- " + codigo + " | Crédito: " + formatCurrency(item.credito));
       });
 
       linhas.push("");
-      linhas.push(`Crédito total: ${formatCurrency(totalCredito)}`);
-      linhas.push(`Entrada total: ${formatCurrency(totalEntrada)}`);
+      linhas.push("Crédito total considerado: " + formatCurrency(totalCredito));
+      linhas.push("Entrada total estimada: " + formatCurrency(totalEntrada));
       linhas.push("");
       linhas.push("Condições de parcelas (por carta):");
 
       selecionadas.forEach((item) => {
         const codigo = item.codigo || item.id;
         linhas.push(
-          `${codigo}: ${item.parcelas}x de ${formatCurrency(item.valor_parcela)}`
+          "- " +
+          codigo +
+          ": " +
+          (item.parcelas || "-") +
+          "x de " +
+          formatCurrency(item.valor_parcela)
         );
       });
+
+      linhas.push("");
+      linhas.push(
+        "Solicito que a equipe Vellavet avalie a melhor estratégia de reserva, enquadramento e prazo, " +
+        "considerando fluxo de caixa, perfil do negócio e segurança da operação."
+      );
 
       return linhas.join("\n");
     }
 
     function atualizarResumoSelecao() {
-      els.selectionSummary.textContent = buildSelectionText();
+      const texto = buildSelectionText();
+      const temSelecao = getSelectedItems().length > 0;
+
+      // painel grande
+      els.selectionSummary.textContent = texto;
+
+      // popup flutuante
+      if (els.floatingSummary) {
+        els.floatingSummary.textContent = texto;
+      }
+      if (els.floatingPanel) {
+        els.floatingPanel.classList.toggle("vv-floating-hidden", !temSelecao);
+      }
     }
 
     function renderTable() {
       if (!state.filtered.length) {
-        els.resultsBody.innerHTML = `
-          <tr>
-            <td class="vv-empty-row" colspan="8">
-              Nenhuma carta encontrada com os filtros atuais. Ajuste os parâmetros e tente novamente.
-            </td>
-          </tr>`;
+        els.resultsBody.innerHTML = (
+          '<tr>' +
+          '<td class="vv-empty-row" colspan="8">' +
+          'Nenhuma carta encontrada com os filtros atuais. Ajuste os parâmetros e tente novamente.' +
+          '</td>' +
+          '</tr>'
+        );
       } else {
         els.resultsBody.innerHTML = "";
         state.filtered.forEach((item) => {
           const isSelected = state.selectedIds.has(item.id);
           const tr = document.createElement("tr");
-          tr.innerHTML = `
-            <td class="vv-center">
-              <input type="checkbox" class="vv-select-card" ${isSelected ? "checked" : ""} />
-            </td>
-            <td>
-              <span class="vv-tag">${item.segmento}</span>
-            </td>
-            <td>
-              <span class="vv-admin">${item.administradora}</span>
-            </td>
-            <td class="vv-money">${formatCurrency(item.credito)}</td>
-            <td class="vv-money">${formatCurrency(item.entrada)}</td>
-            <td>${item.parcelas || "-"}</td>
-            <td class="vv-money">${formatCurrency(item.valor_parcela)}</td>
-            <td>
-              <button class="vv-btn-action" type="button">
-                Quero avaliar esta carta
-              </button>
-            </td>
-          `;
+          tr.innerHTML =
+            '<td class="vv-center">' +
+              '<input type="checkbox" class="vv-select-card"' + (isSelected ? " checked" : "") + ' />' +
+            "</td>" +
+            "<td>" +
+              '<span class="vv-tag">' + item.segmento + "</span>" +
+            "</td>" +
+            "<td>" +
+              '<span class="vv-admin">' + item.administradora + "</span>" +
+            "</td>" +
+            '<td class="vv-money">' + formatCurrency(item.credito) + "</td>" +
+            '<td class="vv-money">' + formatCurrency(item.entrada) + "</td>" +
+            "<td>" + (item.parcelas || "-") + "</td>" +
+            '<td class="vv-money">' + formatCurrency(item.valor_parcela) + "</td>" +
+            "<td>" +
+              '<button class="vv-btn-action" type="button">' +
+                "Quero avaliar esta carta" +
+              "</button>" +
+            "</td>";
 
           const checkbox = tr.querySelector(".vv-select-card");
           checkbox.addEventListener("change", (evt) => {
@@ -907,30 +1052,35 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       }
 
       els.resultsCount.textContent =
-        `${state.filtered.length} de ${state.all.length} cartas visíveis nos filtros atuais.`;
+        state.filtered.length +
+        " de " +
+        state.all.length +
+        " cartas visíveis nos filtros atuais.";
 
       atualizarResumoSelecao();
     }
 
     function construirTextoWhatsSingle(item) {
       const codigo = item.codigo || item.id;
-      return [
-        "Olá! Encontrei esta carta contemplada no site da Vellavet e gostaria de avaliar a reserva:",
-        "",
-        `Código: ${codigo}`,
-        `Segmento: ${item.segmento}`,
-        `Administradora: ${item.administradora}`,
-        `Crédito: ${formatCurrency(item.credito)}`,
-        `Entrada: ${formatCurrency(item.entrada)}`,
-        `Parcelas: ${item.parcelas}x de ${formatCurrency(item.valor_parcela)}`,
-        "",
-        "Pode me ajudar com mais detalhes e simulações?"
-      ].join("\n");
+      const linhas = [];
+
+      linhas.push("Olá! Encontrei esta carta contemplada no ambiente Vellavet e gostaria de avançar com a análise:");
+      linhas.push("");
+      linhas.push("Código: " + codigo);
+      linhas.push("Segmento: " + item.segmento);
+      linhas.push("Administradora: " + item.administradora);
+      linhas.push("Crédito: " + formatCurrency(item.credito));
+      linhas.push("Entrada estimada: " + formatCurrency(item.entrada));
+      linhas.push("Condição de parcelas: " + (item.parcelas || "-") + "x de " + formatCurrency(item.valor_parcela));
+      linhas.push("");
+      linhas.push("Peço, por favor, uma avaliação da Vellavet para entender o melhor formato de reserva e enquadramento.");
+
+      return linhas.join("\n");
     }
 
     function abrirWhatsApp(mensagem) {
       if (!WHATSAPP_NUMBER) return;
-      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
+      const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(mensagem);
       window.open(url, "_blank");
     }
 
@@ -963,7 +1113,7 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
             .map((campo) => {
               if (campo == null) return "";
               const texto = campo.toString().replace(/"/g, '""');
-              return `"${texto}"`;
+              return '"' + texto + '"';
             })
             .join(";")
         )
@@ -984,20 +1134,23 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
     els.btnApply.addEventListener("click", aplicarFiltros);
     els.btnClear.addEventListener("click", limparFiltros);
     els.btnCsv.addEventListener("click", downloadCSV);
+
     els.btnWhats.addEventListener("click", () => {
-      const texto = "Olá! Gostaria de falar com a equipe Vellavet sobre cartas de consórcio contempladas.";
+      const texto =
+        "Olá! Gostaria de falar com a equipe Vellavet sobre cartas de consórcio contempladas " +
+        "e entender qual combinação de crédito, entrada e parcelas faz mais sentido para o meu cenário.";
       abrirWhatsApp(texto);
     });
 
     els.btnCopySelection.addEventListener("click", () => {
       const texto = buildSelectionText();
       if (!navigator.clipboard) {
-        alert("Copie o texto manualmente na área abaixo.");
+        alert("Copie o texto manualmente na área do resumo.");
         return;
       }
       navigator.clipboard.writeText(texto)
         .then(() => {
-          alert("Resumo copiado com sucesso. Agora é só colar onde quiser.");
+          alert("Resumo copiado com sucesso. Agora é só colar na conversa com o cliente ou com a Vellavet.");
         })
         .catch(() => {
           alert("Não foi possível copiar automaticamente. Copie manualmente o resumo.");
@@ -1005,25 +1158,59 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
     });
 
     els.btnWhatsSelection.addEventListener("click", () => {
-      const texto = buildSelectionText();
-      if (!getSelectedItems().length) {
+      const selecionadas = getSelectedItems();
+      if (!selecionadas.length) {
         alert("Selecione pelo menos uma carta na tabela antes de reservar via WhatsApp.");
         return;
       }
-      const mensagem = texto +
-        "\n\nEncontrei essas cartas contempladas no site da Vellavet e gostaria de avaliar a reserva.";
+      const mensagem =
+        buildSelectionText() +
+        "\n\nEnviei este resumo a partir do ambiente Vellavet e gostaria de orientações para a melhor reserva.";
       abrirWhatsApp(mensagem);
     });
+
+    // Popup flutuante - fechar
+    if (els.btnFloatingClose && els.floatingPanel) {
+      els.btnFloatingClose.addEventListener("click", () => {
+        els.floatingPanel.classList.add("vv-floating-hidden");
+      });
+    }
+
+    // Popup flutuante - copiar
+    if (els.btnFloatingCopy) {
+      els.btnFloatingCopy.addEventListener("click", () => {
+        const texto = buildSelectionText();
+        if (!navigator.clipboard) {
+          alert("Copie o texto manualmente no quadro do resumo.");
+          return;
+        }
+        navigator.clipboard.writeText(texto)
+          .then(() => {
+            alert("Resumo copiado com sucesso.");
+          })
+          .catch(() => {
+            alert("Não foi possível copiar automaticamente. Copie manualmente o resumo.");
+          });
+      });
+    }
+
+    // Popup flutuante - WhatsApp
+    if (els.btnFloatingWhats) {
+      els.btnFloatingWhats.addEventListener("click", () => {
+        const selecionadas = getSelectedItems();
+        if (!selecionadas.length) {
+          alert("Selecione pelo menos uma carta na tabela antes de enviar pelo WhatsApp.");
+          return;
+        }
+        const mensagem =
+          buildSelectionText() +
+          "\n\nEnviei este resumo a partir do ambiente Vellavet e gostaria de avançar na reserva.";
+        abrirWhatsApp(mensagem);
+      });
+    }
 
     // Inicialização
     loadData();
   </script>
 </body>
 </html>
-"""
-
-file_path = "/mnt/data/cartas-contempladas-v2.html"
-with open(file_path, "w", encoding="utf-8") as f:
-    f.write(html_code)
-
-file_path
