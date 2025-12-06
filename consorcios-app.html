@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cartas Contempladas | Vellavet Assessoria</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --vv-bg: #050816;
+      --vv-bg-soft: #0b1020;
+      --vv-card: #111827;
+      --vv-card-soft: #1f2937;
+      --vv-border: rgba(148, 163, 184, 0.35);
+      --vv-text: #e5e7eb;
+      --vv-text-soft: #9ca3af;
+      --vv-primary: #22c55e;
+      --vv-primary-soft: rgba(34, 197, 94, 0.12);
+      --vv-accent: #38bdf8;
+      --vv-danger: #f97373;
+      --vv-radius-xl: 18px;
+      --vv-radius-full: 999px;
+      --vv-shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+      color: var(--vv-text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .vv-shell {
+      min-height: 100vh;
+      padding: 40px 16px 56px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .vv-header {
+      margin-bottom: 32px;
+    }
+
+    .vv-kicker {
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--vv-accent);
+      margin-bottom: 8px;
+    }
+
+    .vv-title {
+      font-size: 28px;
+      line-height: 1.2;
+      margin: 0 0 10px;
+    }
+
+    .vv-subtitle {
+      margin: 0;
+      color: var(--vv-text-soft);
+      font-size: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .vv-shell {
+        padding: 48px 24px 64px;
+      }
+
+      .vv-title {
+        font-size: 34px;
+      }
+
+      .vv-subtitle {
+        font-size: 15px;
+      }
+    }
+
+    /* FILTROS */
+    .vv-filters-card {
+      background: radial-gradient(circle at top left, #111827 0, #020617 60%);
+      border-radius: 22px;
+      border: 1px solid var(--vv-border);
+      padding: 18px 16px 20px;
+      box-shadow: var(--vv-shadow-soft);
+      margin-bottom: 28px;
+    }
+
+    .vv-filters-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .vv-filters-grid {
+        grid-template-columns: 1.2fr 1.2fr 2fr 2fr;
+      }
+    }
+
+    .vv-filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .vv-filter-group label {
+      color: var(--vv-text-soft);
+    }
+
+    .vv-select,
+    .vv-input {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.75);
+      color: var(--vv-text);
+      padding: 8px 12px;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .vv-select:focus,
+    .vv-input:focus {
+      border-color: var(--vv-accent);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.5);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .vv-range-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .vv-range-row span {
+      font-size: 11px;
+      color: var(--vv-text-soft);
+      white-space: nowrap;
+    }
+
+    .vv-actions-row {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .vv-btn {
+      border-radius: var(--vv-radius-full);
+      border: 1px solid transparent;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.15s ease, transform 0.1s ease,
+        box-shadow 0.15s ease, border-color 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .vv-btn-primary {
+      background: radial-gradient(circle at top left, #22c55e, #16a34a);
+      color: #020617;
+      box-shadow: 0 14px 30px rgba(22, 163, 74, 0.7);
+    }
+
+    .vv-btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(22, 163, 74, 0.9);
+    }
+
+    .vv-btn-outline {
+      background: transparent;
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--vv-text-soft);
+    }
+
+    .vv-btn-outline:hover {
+      border-color: var(--vv-accent);
+      color: var(--vv-accent);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .vv-chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 4px 9px;
+      font-size: 11px;
+      color: var(--vv-text-soft);
+      gap: 6px;
+    }
+
+    .vv-chip-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top left, #22c55e, #16a34a);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+    }
+
+    /* RESULTADOS HEADER */
+    .vv-results-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .vv-results-title {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .vv-results-sub {
+      margin: 2px 0 0;
+      font-size: 12px;
+      color: var(--vv-text-soft);
+    }
+
+    .vv-results-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .vv-results-count {
+      font-size: 12px;
+      color: var(--vv-text-soft);
+    }
+
+    /* GRID DE CARTAS */
+    .vv-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 6px;
+    }
+
+    @media (min-width: 640px) {
+      .vv-cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .vv-cards-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .vv-card {
+      border-radius: 18px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      background: linear-gradient(145deg, #020617, #020617, #0b1120);
+      padding: 14px 14px 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vv-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(34, 197, 94, 0.06), transparent 60%);
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .vv-card-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .vv-card-tag {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--vv-text-soft);
+    }
+
+    .vv-card-admin {
+      font-size: 11px;
+      color: var(--vv-text-soft);
+      text-align: right;
+    }
+
+    .vv-card-title {
+      font-size: 15px;
+      margin: 2px 0 0;
+    }
+
+    .vv-card-main {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .vv-card-value {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .vv-card-value span {
+      font-size: 13px;
+      color: var(--vv-text-soft);
+      font-weight: 400;
+      margin-right: 2px;
+    }
+
+    .vv-card-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 2px;
+    }
+
+    .vv-badge {
+      font-size: 11px;
+      border-radius: 999px;
+      padding: 3px 8px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--vv-text-soft);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .vv-badge-strong {
+      border-color: rgba(34, 197, 94, 0.7);
+      color: #bbf7d0;
+      background: rgba(22, 163, 74, 0.12);
+    }
+
+    .vv-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .vv-card-link {
+      font-size: 11px;
+      color: var(--vv-accent);
+      text-decoration: none;
+    }
+
+    .vv-card-link:hover {
+      text-decoration: underline;
+    }
+
+    .vv-card-location {
+      font-size: 11px;
+      color: var(--vv-text-soft);
+      text-align: right;
+    }
+
+    /* CTA FOOTER */
+    .vv-footer-cta {
+      margin-top: 28px;
+      padding: 16px 14px;
+      border-radius: 22px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: radial-gradient(circle at left, rgba(34, 197, 94, 0.16), #020617);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .vv-footer-cta {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .vv-footer-text {
+      font-size: 13px;
+      color: var(--vv-text-soft);
+    }
+
+    .vv-footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-start;
+    }
+
+    .vv-btn-ghost {
+      border-radius: var(--vv-radius-full);
+      padding: 8px 16px;
+      font-size: 13px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: transparent;
+      color: var(--vv-text-soft);
+      cursor: pointer;
+    }
+
+    .vv-btn-ghost:hover {
+      border-color: var(--vv-accent);
+      color: var(--vv-accent);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* EMPTY / ERROR */
+    .vv-empty {
+      border-radius: 18px;
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+      padding: 18px 14px;
+      font-size: 13px;
+      color: var(--vv-text-soft);
+      background: rgba(15, 23, 42, 0.6);
+      margin-top: 8px;
+    }
+
+    .vv-error {
+      color: var(--vv-danger);
+    }
+  </style>
+</head>
+<body>
+  <main class="vv-shell">
+    <header class="vv-header">
+      <div class="vv-kicker">CONSÓRCIO VELLAVET</div>
+      <h1 class="vv-title">Cartas contempladas com curadoria especializada</h1>
+      <p class="vv-subtitle">
+        Utilize os filtros para refinar. A disponibilidade é confirmada caso a caso com a
+        administradora e pode mudar sem aviso prévio.
+      </p>
+    </header>
+
+    <!-- FILTROS -->
+    <section class="vv-filters-card">
+      <div class="vv-filters-grid">
+        <div class="vv-filter-group">
+          <label for="fSegmento">Segmento</label>
+          <select id="fSegmento" class="vv-select">
+            <option value="">Todos</option>
+          </select>
+        </div>
+
+        <div class="vv-filter-group">
+          <label for="fAdmin">Administradora</label>
+          <select id="fAdmin" class="vv-select">
+            <option value="">Todas</option>
+          </select>
+        </div>
+
+        <div class="vv-filter-group">
+          <label>Valor da Carta (R$)</label>
+          <div class="vv-range-row">
+            <input id="fCartaMin" class="vv-input" type="number" placeholder="mín." />
+            <span>até</span>
+            <input id="fCartaMax" class="vv-input" type="number" placeholder="máx." />
+          </div>
+        </div>
+
+        <div class="vv-filter-group">
+          <label>Valor da Parcela (R$)</label>
+          <div class="vv-range-row">
+            <input id="fParcelaMin" class="vv-input" type="number" placeholder="mín." />
+            <span>até</span>
+            <input id="fParcelaMax" class="vv-input" type="number" placeholder="máx." />
+          </div>
+        </div>
+      </div>
+
+      <div class="vv-actions-row">
+        <div class="vv-chip">
+          <span class="vv-chip-dot"></span>
+          Filtro com leitura do JSON local de cartas contempladas.
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button id="btnLimpar" class="vv-btn vv-btn-outline" type="button">
+            Limpar filtros
+          </button>
+          <button id="btnAplicar" class="vv-btn vv-btn-primary" type="button">
+            Aplicar filtros
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTADOS -->
+    <section>
+      <div class="vv-results-header">
+        <div>
+          <h2 class="vv-results-title">Resultados</h2>
+          <p class="vv-results-sub">
+            Cartas filtradas a partir da sua seleção. Confirmação final sempre com a Vellavet e a administradora.
+          </p>
+        </div>
+        <div class="vv-results-meta">
+          <span id="vvResultsCount" class="vv-results-count">Carregando lista…</span>
+        </div>
+      </div>
+
+      <div id="vvErrorBox" class="vv-empty vv-error" style="display: none;"></div>
+      <div id="vvEmptyBox" class="vv-empty" style="display: none;">
+        Nenhuma carta encontrada para esse filtro. Ajuste os parâmetros ou fale com nossa equipe para buscar
+        alternativas em outros grupos e administradoras.
+      </div>
+
+      <div id="vvCardsGrid" class="vv-cards-grid"></div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="vv-footer-cta">
+      <p class="vv-footer-text">
+        Quer uma análise guiada por especialista? A Vellavet atua como curadoria independente,
+        cruzando taxa de administração, prazo, segmento, administradora e estratégia (uso, investimento ou
+        capital de giro).
+      </p>
+      <div class="vv-footer-actions">
+        <button
+          id="btnWhats"
+          class="vv-btn vv-btn-primary"
+          type="button"
+        >
+          Solicitar atendimento especializado
+        </button>
+        <button
+          id="btnDownload"
+          class="vv-btn-ghost"
+          type="button"
+        >
+          Download da lista (CSV)
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const state = {
+      all: [],
+      filtered: [],
+    };
+
+    const el = {
+      segmento: document.getElementById("fSegmento"),
+      admin: document.getElementById("fAdmin"),
+      cartaMin: document.getElementById("fCartaMin"),
+      cartaMax: document.getElementById("fCartaMax"),
+      parcelaMin: document.getElementById("fParcelaMin"),
+      parcelaMax: document.getElementById("fParcelaMax"),
+      btnAplicar: document.getElementById("btnAplicar"),
+      btnLimpar: document.getElementById("btnLimpar"),
+      grid: document.getElementById("vvCardsGrid"),
+      count: document.getElementById("vvResultsCount"),
+      error: document.getElementById("vvErrorBox"),
+      empty: document.getElementById("vvEmptyBox"),
+      btnDownload: document.getElementById("btnDownload"),
+      btnWhats: document.getElementById("btnWhats"),
+    };
+
+    function parseNumber(value) {
+      if (typeof value === "number") return value;
+      if (value === null || value === undefined) return 0;
+      const cleaned = String(value)
+        .replace(/[R$\s\.]/g, "")
+        .replace(",", ".");
+      const result = Number(cleaned);
+      return Number.isNaN(result) ? 0 : result;
+    }
+
+    function formatCurrency(value) {
+      const num = parseNumber(value);
+      return new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+        minimumFractionDigits: 2,
+      }).format(num);
+    }
+
+    async function loadConsorcios() {
+      try {
+        el.error.style.display = "none";
+        el.empty.style.display = "none";
+        el.count.textContent = "Carregando lista…";
+
+        const res = await fetch("data/consorcios.json", { cache: "no-store" });
+        if (!res.ok) {
+          throw new Error("Não foi possível carregar o JSON (HTTP " + res.status + ")");
+        }
+
+        const data = await res.json();
+        let items = [];
+
+        if (Array.isArray(data)) {
+          items = data;
+        } else if (Array.isArray(data.items)) {
+          items = data.items;
+        } else {
+          throw new Error("Formato de JSON inesperado: esperado array ou { items: [] }");
+        }
+
+        state.all = items;
+        state.filtered = items.slice();
+
+        hydrateFilterOptions();
+        renderList();
+      } catch (err) {
+        console.error(err);
+        el.error.textContent =
+          "Erro ao carregar a lista de consórcios. Verifique o JSON ou fale com o suporte da Vellavet.";
+        el.error.style.display = "block";
+        el.count.textContent = "Erro ao carregar lista.";
+      }
+    }
+
+    function hydrateFilterOptions() {
+      const segmentos = new Set();
+      const admins = new Set();
+
+      state.all.forEach((item) => {
+        if (item.segmento) segmentos.add(item.segmento);
+        if (item.administradora) admins.add(item.administradora);
+      });
+
+      const segValues = Array.from(segmentos).sort();
+      const admValues = Array.from(admins).sort();
+
+      el.segmento.innerHTML = '<option value="">Todos</option>' +
+        segValues.map((s) => `<option value="${s}">${s}</option>`).join("");
+
+      el.admin.innerHTML = '<option value="">Todas</option>' +
+        admValues.map((a) => `<option value="${a}">${a}</option>`).join("");
+    }
+
+    function applyFilters() {
+      const seg = el.segmento.value;
+      const adm = el.admin.value;
+      const cartaMin = el.cartaMin.value ? Number(el.cartaMin.value) : null;
+      const cartaMax = el.cartaMax.value ? Number(el.cartaMax.value) : null;
+      const parcMin = el.parcelaMin.value ? Number(el.parcelaMin.value) : null;
+      const parcMax = el.parcelaMax.value ? Number(el.parcelaMax.value) : null;
+
+      state.filtered = state.all.filter((item) => {
+        if (seg && item.segmento !== seg) return false;
+        if (adm && item.administradora !== adm) return false;
+
+        const carta = parseNumber(item.valor_carta ?? item.valorCarta ?? item.carta);
+        const parcela = parseNumber(item.valor_parcela ?? item.valorParcela ?? item.parcela);
+
+        if (cartaMin !== null && carta < cartaMin) return false;
+        if (cartaMax !== null && carta > cartaMax) return false;
+        if (parcMin !== null && parcela < parcMin) return false;
+        if (parcMax !== null && parcela > parcMax) return false;
+
+        return true;
+      });
+
+      renderList();
+    }
+
+    function clearFilters() {
+      el.segmento.value = "";
+      el.admin.value = "";
+      el.cartaMin.value = "";
+      el.cartaMax.value = "";
+      el.parcelaMin.value = "";
+      el.parcelaMax.value = "";
+      state.filtered = state.all.slice();
+      renderList();
+    }
+
+    function renderList() {
+      el.grid.innerHTML = "";
+
+      const total = state.all.length;
+      const filtradas = state.filtered.length;
+
+      el.count.textContent =
+        total === 0
+          ? "Nenhuma carta carregada."
+          : `${filtradas} de ${total} cartas visíveis nos filtros atuais.`;
+
+      if (!filtradas) {
+        el.empty.style.display = "block";
+        return;
+      } else {
+        el.empty.style.display = "none";
+      }
+
+      state.filtered.forEach((item) => {
+        const carta = parseNumber(item.valor_carta ?? item.valorCarta ?? item.carta);
+        const parcela = parseNumber(item.valor_parcela ?? item.valorParcela ?? item.parcela);
+        const prazo = item.prazo_restante ?? item.prazo ?? "";
+        const cidade = item.cidade ?? "";
+        const uf = item.uf ?? item.estado ?? "";
+
+        const div = document.createElement("article");
+        div.className = "vv-card";
+
+        div.innerHTML = `
+          <div class="vv-card-header">
+            <div>
+              <div class="vv-card-tag">
+                ${item.segmento || "Segmento não informado"}
+              </div>
+              <h3 class="vv-card-title">
+                <span style="font-weight:400;color:var(--vv-text-soft);font-size:12px;">Carta</span><br/>
+                ${formatCurrency(carta)}
+              </h3>
+            </div>
+            <div class="vv-card-admin">
+              <div>Adm.</div>
+              <strong>${item.administradora || "A confirmar"}</strong>
+            </div>
+          </div>
+          <div class="vv-card-main">
+            <div class="vv-card-value">
+              <span>Parcela</span>${formatCurrency(parcela)}
+            </div>
+          </div>
+          <div class="vv-card-badges">
+            ${
+              prazo
+                ? `<span class="vv-badge vv-badge-strong">${prazo} meses restantes (aprox.)</span>`
+                : ""
+            }
+            ${
+              item.situacao
+                ? `<span class="vv-badge">${item.situacao}</span>`
+                : ""
+            }
+            ${
+              item.codigo
+                ? `<span class="vv-badge">Cód.: ${item.codigo}</span>`
+                : ""
+            }
+          </div>
+          <div class="vv-card-footer">
+            <a class="vv-card-link" href="#contato">
+              Quero avaliar esta carta
+            </a>
+            <div class="vv-card-location">
+              ${
+                cidade || uf
+                  ? `${cidade ? cidade + " - " : ""}${uf}`
+                  : "Local a confirmar"
+              }
+            </div>
+          </div>
+        `;
+
+        el.grid.appendChild(div);
+      });
+    }
+
+    function downloadCSV() {
+      if (!state.filtered.length) {
+        alert("Nenhuma carta para exportar nos filtros atuais.");
+        return;
+      }
+
+      const first = state.filtered[0];
+      const headers = Object.keys(first);
+
+      const rows = [
+        headers.join(";"),
+        ...state.filtered.map((item) =>
+          headers
+            .map((h) => {
+              const v = item[h] ?? "";
+              const s = String(v).replace(/"/g, '""');
+              return `"${s}"`;
+            })
+            .join(";")
+        ),
+      ];
+
+      const blob = new Blob([rows.join("\r\n")], {
+        type: "text/csv;charset=utf-8;",
+      });
+
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "cartas_contempladas_vellavet.csv";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+
+    function openWhats() {
+      const msg = encodeURIComponent(
+        "Olá, vi a lista de cartas contempladas da Vellavet e gostaria de falar com um especialista para avaliar as melhores opções para meu caso."
+      );
+      // Ajuste o número oficial da Vellavet aqui:
+      const numero = "5511999999999";
+      const url = `https://wa.me/${numero}?text=${msg}`;
+      window.open(url, "_blank");
+    }
+
+    el.btnAplicar.addEventListener("click", applyFilters);
+    el.btnLimpar.addEventListener("click", clearFilters);
+    el.btnDownload.addEventListener("click", downloadCSV);
+    el.btnWhats.addEventListener("click", openWhats);
+
+    loadConsorcios();
+  </script>
+</body>
+</html>
