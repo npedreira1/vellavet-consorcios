@@ -779,7 +779,6 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       <button id="btn-modal-close" type="button" class="vv-modal-close" aria-label="Fechar resumo">✕</button>
       <h3 class="vv-modal-title">Seleção das cartas</h3>
       <div id="selection-modal-body" class="vv-modal-body">
-        <!-- conteúdo gerado via JavaScript -->
         <p>Nenhuma carta selecionada.</p>
       </div>
       <div class="vv-modal-actions">
@@ -790,8 +789,9 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
   </div>
 
   <script>
-    // TROCAR PELO NÚMERO OFICIAL DA VELLAVET (DDI + DDD + número, só dígitos)
-    const WHATSAPP_NUMBER = "5511999999999";
+    // CONTATOS OFICIAIS VELLAVET
+    const WHATSAPP_NUMBER = "5511994151000";
+    const CONTACT_EMAIL = "contato@vellavet.com.br";
 
     const state = {
       all: [],
@@ -876,18 +876,18 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
     }
 
     function popularFiltros() {
-      var segmentos = Array.from(new Set(state.all.map(function (i) { return i.segmento; }).filter(Boolean))).sort();
-      var admins = Array.from(new Set(state.all.map(function (i) { return i.administradora; }).filter(Boolean))).sort();
+      const segmentos = Array.from(new Set(state.all.map(function (i) { return i.segmento; }).filter(Boolean))).sort();
+      const admins = Array.from(new Set(state.all.map(function (i) { return i.administradora; }).filter(Boolean))).sort();
 
       segmentos.forEach(function (seg) {
-        var opt = document.createElement("option");
+        const opt = document.createElement("option");
         opt.value = seg;
         opt.textContent = seg;
         els.segmento.appendChild(opt);
       });
 
       admins.forEach(function (ad) {
-        var opt = document.createElement("option");
+        const opt = document.createElement("option");
         opt.value = ad;
         opt.textContent = ad;
         els.admin.appendChild(opt);
@@ -896,17 +896,17 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
 
     function getNumberValue(input) {
       if (!input.value) return null;
-      var n = Number(input.value.toString().replace(",", "."));
+      const n = Number(input.value.toString().replace(",", "."));
       return Number.isNaN(n) ? null : n;
     }
 
     function aplicarFiltros() {
-      var seg = els.segmento.value;
-      var adm = els.admin.value;
-      var cartaMin = getNumberValue(els.cartaMin);
-      var cartaMax = getNumberValue(els.cartaMax);
-      var parcelaMin = getNumberValue(els.parcelaMin);
-      var parcelaMax = getNumberValue(els.parcelaMax);
+      const seg = els.segmento.value;
+      const adm = els.admin.value;
+      const cartaMin = getNumberValue(els.cartaMin);
+      const cartaMax = getNumberValue(els.cartaMax);
+      const parcelaMin = getNumberValue(els.parcelaMin);
+      const parcelaMax = getNumberValue(els.parcelaMax);
 
       state.filtered = state.all.filter(function (item) {
         if (seg && item.segmento !== seg) return false;
@@ -928,38 +928,66 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       els.cartaMax.value = "";
       els.parcelaMin.value = "";
       els.parcelaMax.value = "";
+
+      // limpa seleção em massa
+      state.selectedIds.clear();
+
       state.filtered = state.all.slice();
       renderTable();
     }
 
     function getSelectedItems() {
-      var ids = state.selectedIds;
+      const ids = state.selectedIds;
       if (!ids.size) return [];
       return state.all.filter(function (item) { return ids.has(item.id); });
     }
 
-    // TEXTO PREMIUM "VOZ VELLAVET" (para WhatsApp / copiar)
+    // calcula total e grupos de parcelas por valor
+    function calcularFluxoParcelas(selecionadas) {
+      let totalParcelas = 0;
+      const gruposMap = new Map();
+
+      selecionadas.forEach(function (item) {
+        const qtd = Number(item.parcelas || 0);
+        const valor = Number(item.valor_parcela || 0);
+        if (!qtd || !valor) return;
+
+        totalParcelas += qtd;
+        const atual = gruposMap.get(valor) || 0;
+        gruposMap.set(valor, atual + qtd);
+      });
+
+      const grupos = Array.from(gruposMap.entries()).map(function (par) {
+        return { valor: par[0], quantidade: par[1] };
+      });
+
+      return { totalParcelas: totalParcelas, grupos: grupos };
+    }
+
+    // TEXTO PREMIUM (para copiar / WhatsApp)
     function buildSelectionText() {
-      var selecionadas = getSelectedItems();
+      const selecionadas = getSelectedItems();
       if (!selecionadas.length) {
         return 'Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel." para visualizar o resumo.';
       }
 
-      var segmentos = Array.from(new Set(selecionadas.map(function (i) { return i.segmento; }).filter(Boolean)));
-      var admins = Array.from(new Set(selecionadas.map(function (i) { return i.administradora; }).filter(Boolean)));
+      const segmentos = Array.from(new Set(selecionadas.map(function (i) { return i.segmento; }).filter(Boolean)));
+      const admins = Array.from(new Set(selecionadas.map(function (i) { return i.administradora; }).filter(Boolean)));
 
-      var totalCredito = selecionadas.reduce(function (sum, i) { return sum + (i.credito || 0); }, 0);
-      var totalEntrada = selecionadas.reduce(function (sum, i) { return sum + (i.entrada || 0); }, 0);
+      const totalCredito = selecionadas.reduce(function (sum, i) { return sum + (i.credito || 0); }, 0);
+      const totalEntrada = selecionadas.reduce(function (sum, i) { return sum + (i.entrada || 0); }, 0);
 
-      var linhas = [];
+      const fluxo = calcularFluxoParcelas(selecionadas);
 
-      linhas.push("Resumo consolidado das cartas contempladas selecionadas via Vellavet:");
+      const linhas = [];
+
+      linhas.push("Seleção das cartas contempladas via Vellavet");
       linhas.push("");
 
       if (admins.length === 1) {
-        linhas.push("Administradora envolvida: " + admins[0]);
+        linhas.push("Administradora: " + admins[0]);
       } else if (admins.length > 1) {
-        linhas.push("Administradoras envolvidas: " + admins.join(", "));
+        linhas.push("Administradoras: " + admins.join(", "));
       }
 
       if (segmentos.length === 1) {
@@ -969,24 +997,29 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       }
 
       linhas.push("");
-      linhas.push(selecionadas.length + " carta(s) selecionada(s):");
+      linhas.push(selecionadas.length + " carta(s) selecionadas:");
+
       selecionadas.forEach(function (item) {
-        var codigo = item.codigo || item.id;
-        linhas.push("- " + codigo + " | Crédito: " + formatCurrency(item.credito));
+        const codigo = item.codigo || item.id;
+        linhas.push(
+          codigo + " - " + formatCurrency(item.credito)
+        );
       });
 
       linhas.push("");
-      linhas.push("Crédito total considerado: " + formatCurrency(totalCredito));
-      linhas.push("Entrada total estimada: " + formatCurrency(totalEntrada));
+      linhas.push("Crédito total das cotas: " + formatCurrency(totalCredito));
+      linhas.push("Entrada total das cotas: " + formatCurrency(totalEntrada));
       linhas.push("");
-      linhas.push("Condições de parcelas (por carta):");
 
-      selecionadas.forEach(function (item) {
-        var codigo = item.codigo || item.id;
-        linhas.push("- " + codigo + ": " + (item.parcelas || "-") + "x de " + formatCurrency(item.valor_parcela));
-      });
+      if (fluxo.totalParcelas > 0) {
+        linhas.push("Total de parcelas " + fluxo.totalParcelas + ", fluxo de pagamento:");
+        linhas.push("");
+        fluxo.grupos.forEach(function (g) {
+          linhas.push(g.quantidade + "x " + formatCurrency(g.valor));
+        });
+        linhas.push("");
+      }
 
-      linhas.push("");
       linhas.push(
         "Solicito que a equipe Vellavet avalie a melhor estratégia de reserva, enquadramento e prazo, " +
         "considerando fluxo de caixa, perfil do negócio e segurança da operação."
@@ -995,21 +1028,24 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       return linhas.join("\n");
     }
 
-    // HTML do modal central (tipo Lizzy)
+    // HTML do modal central no padrão que você pediu
     function buildSelectionHTML() {
-      var selecionadas = getSelectedItems();
+      const selecionadas = getSelectedItems();
       if (!selecionadas.length) {
         return "<p>Nenhuma carta selecionada no momento.</p>";
       }
 
-      var segmentos = Array.from(new Set(selecionadas.map(function (i) { return i.segmento; }).filter(Boolean)));
-      var admins = Array.from(new Set(selecionadas.map(function (i) { return i.administradora; }).filter(Boolean)));
+      const segmentos = Array.from(new Set(selecionadas.map(function (i) { return i.segmento; }).filter(Boolean)));
+      const admins = Array.from(new Set(selecionadas.map(function (i) { return i.administradora; }).filter(Boolean)));
 
-      var totalCredito = selecionadas.reduce(function (sum, i) { return sum + (i.credito || 0); }, 0);
-      var totalEntrada = selecionadas.reduce(function (sum, i) { return sum + (i.entrada || 0); }, 0);
+      const totalCredito = selecionadas.reduce(function (sum, i) { return sum + (i.credito || 0); }, 0);
+      const totalEntrada = selecionadas.reduce(function (sum, i) { return sum + (i.entrada || 0); }, 0);
 
-      var html = "";
+      const fluxo = calcularFluxoParcelas(selecionadas);
 
+      let html = "";
+
+      // Admin / segmento
       if (admins.length === 1) {
         html += "<p><strong>Administradora:</strong> " + admins[0] + "</p>";
       } else if (admins.length > 1) {
@@ -1024,38 +1060,34 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
 
       html += "<p style=\"margin-top:10px;\"><strong>" +
         selecionadas.length +
-        " carta(s) selecionadas:</strong></p>";
+        " cartas selecionadas:</strong></p>";
 
       html += "<ul>";
       selecionadas.forEach(function (item) {
-        var codigo = item.codigo || item.id;
-        html += "<li><strong>" + codigo + "</strong> - " + formatCurrency(item.credito) + "</li>";
+        const codigo = item.codigo || item.id;
+        html += "<li>" + codigo + " - " + formatCurrency(item.credito) + "</li>";
       });
       html += "</ul>";
 
-      html += "<p><strong>Crédito total:</strong> " + formatCurrency(totalCredito) + "</p>";
-      html += "<p><strong>Entrada total:</strong> " + formatCurrency(totalEntrada) + "</p>";
+      html += "<p><strong>Crédito Total das Cotas:</strong> " + formatCurrency(totalCredito) + "</p>";
+      html += "<p><strong>Entrada Total das Cotas:</strong> " + formatCurrency(totalEntrada) + "</p>";
 
-      html += "<p style=\"margin-top:10px;\"><strong>Parcelas por carta:</strong></p>";
-      html += "<ul>";
-      selecionadas.forEach(function (item) {
-        var codigo = item.codigo || item.id;
-        html += "<li>" +
-          (item.parcelas || "-") +
-          "x de " +
-          formatCurrency(item.valor_parcela) +
-          " (" +
-          codigo +
-          ")" +
-          "</li>";
-      });
-      html += "</ul>";
+      if (fluxo.totalParcelas > 0) {
+        html += "<p style=\"margin-top:10px;\"><strong>Total de Parcelas " +
+          fluxo.totalParcelas +
+          ", fluxo de pagamento:</strong></p>";
+        html += "<ul>";
+        fluxo.grupos.forEach(function (g) {
+          html += "<li>" + g.quantidade + "x " + formatCurrency(g.valor) + "</li>";
+        });
+        html += "</ul>";
+      }
 
       return html;
     }
 
     function atualizarResumoSelecao() {
-      var texto = buildSelectionText();
+      const texto = buildSelectionText();
       els.selectionSummary.textContent = texto;
     }
 
@@ -1070,8 +1102,8 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       } else {
         els.resultsBody.innerHTML = "";
         state.filtered.forEach(function (item) {
-          var isSelected = state.selectedIds.has(item.id);
-          var tr = document.createElement("tr");
+          const isSelected = state.selectedIds.has(item.id);
+          const tr = document.createElement("tr");
           tr.innerHTML =
             '<td class="vv-center">' +
               '<input type="checkbox" class="vv-select-card"' + (isSelected ? " checked" : "") + " />" +
@@ -1092,7 +1124,7 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
               "</button>" +
             "</td>";
 
-          var checkbox = tr.querySelector(".vv-select-card");
+          const checkbox = tr.querySelector(".vv-select-card");
           checkbox.addEventListener("change", function (evt) {
             if (evt.target.checked) {
               state.selectedIds.add(item.id);
@@ -1102,10 +1134,20 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
             atualizarResumoSelecao();
           });
 
-          var btnAction = tr.querySelector(".vv-btn-action");
+          const btnAction = tr.querySelector(".vv-btn-action");
           btnAction.addEventListener("click", function () {
-            var texto = construirTextoWhatsSingle(item);
-            abrirWhatsApp(texto);
+            const mensagem = construirTextoWhatsSingle(item);
+
+            const usarWhats = confirm(
+              "Como prefere ser atendido pela Vellavet?\n\n" +
+              "OK = WhatsApp\nCancelar = E-mail (" + CONTACT_EMAIL + ")"
+            );
+
+            if (usarWhats) {
+              abrirWhatsApp(mensagem);
+            } else {
+              abrirEmail(mensagem);
+            }
           });
 
           els.resultsBody.appendChild(tr);
@@ -1122,8 +1164,8 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
     }
 
     function construirTextoWhatsSingle(item) {
-      var codigo = item.codigo || item.id;
-      var linhas = [];
+      const codigo = item.codigo || item.id;
+      const linhas = [];
 
       linhas.push("Olá! Encontrei esta carta contemplada no ambiente Vellavet e gostaria de avançar com a análise:");
       linhas.push("");
@@ -1134,21 +1176,32 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       linhas.push("Entrada estimada: " + formatCurrency(item.entrada));
       linhas.push("Condição de parcelas: " + (item.parcelas || "-") + "x de " + formatCurrency(item.valor_parcela));
       linhas.push("");
-      linhas.push("Peço, por favor, uma avaliação da Vellavet para entender o melhor formato de reserva e enquadramento.");
+      linhas.push(
+        "Estou à disposição para seguir com a reserva. Caso necessário, este contato pode ser retornado também pelo e-mail " +
+        CONTACT_EMAIL +
+        "."
+      );
 
       return linhas.join("\n");
     }
 
     function abrirWhatsApp(mensagem) {
       if (!WHATSAPP_NUMBER) return;
-      var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(mensagem);
+      const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(mensagem);
       window.open(url, "_blank");
+    }
+
+    function abrirEmail(mensagem) {
+      if (!CONTACT_EMAIL) return;
+      const subject = encodeURIComponent("Avaliação de carta contemplada - Vellavet");
+      const body = encodeURIComponent(mensagem);
+      window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + subject + "&body=" + body;
     }
 
     function downloadCSV() {
       if (!state.filtered.length) return;
 
-      var header = [
+      const header = [
         "Codigo",
         "Segmento",
         "Administradora",
@@ -1158,7 +1211,7 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
         "Valor_Parcela"
       ];
 
-      var linhas = state.filtered.map(function (item) {
+      const linhas = state.filtered.map(function (item) {
         return [
           (item.codigo || item.id || "").toString(),
           (item.segmento || "").toString(),
@@ -1170,21 +1223,21 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
         ];
       });
 
-      var csvContent = [header].concat(linhas)
+      const csvContent = [header].concat(linhas)
         .map(function (row) {
           return row
             .map(function (campo) {
               if (campo == null) return "";
-              var texto = campo.toString().replace(/"/g, '""');
+              const texto = campo.toString().replace(/"/g, '""');
               return '"' + texto + '"';
             })
             .join(";");
         })
         .join("\n");
 
-      var blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-      var url = URL.createObjectURL(blob);
-      var link = document.createElement("a");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
       link.href = url;
       link.download = "cartas_contempladas_vellavet.csv";
       document.body.appendChild(link);
@@ -1195,7 +1248,7 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
 
     // Modal: abrir / fechar
     function openSelectionModal() {
-      var selecionadas = getSelectedItems();
+      const selecionadas = getSelectedItems();
       if (!selecionadas.length) {
         alert("Selecione pelo menos uma carta na tabela para visualizar o resumo.");
         return;
@@ -1218,14 +1271,14 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
     els.btnCsv.addEventListener("click", downloadCSV);
 
     els.btnWhats.addEventListener("click", function () {
-      var texto =
+      const texto =
         "Olá! Gostaria de falar com a equipe Vellavet sobre cartas de consórcio contempladas " +
         "e entender qual combinação de crédito, entrada e parcelas faz mais sentido para o meu cenário.";
       abrirWhatsApp(texto);
     });
 
     els.btnCopySelection.addEventListener("click", function () {
-      var texto = buildSelectionText();
+      const texto = buildSelectionText();
       if (!navigator.clipboard) {
         alert("Copie o texto manualmente na área do resumo.");
         return;
@@ -1249,7 +1302,7 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
 
     if (els.btnModalCopy) {
       els.btnModalCopy.addEventListener("click", function () {
-        var texto = buildSelectionText();
+        const texto = buildSelectionText();
         if (!navigator.clipboard) {
           alert("Copie o texto manualmente.");
           return;
@@ -1266,19 +1319,19 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
 
     if (els.btnModalWhats) {
       els.btnModalWhats.addEventListener("click", function () {
-        var selecionadas = getSelectedItems();
+        const selecionadas = getSelectedItems();
         if (!selecionadas.length) {
           alert("Selecione pelo menos uma carta na tabela antes de reservar.");
           return;
         }
-        var mensagem =
+        const mensagem =
           buildSelectionText() +
           "\n\nEnviei este resumo a partir do ambiente Vellavet e gostaria de avançar na reserva.";
         abrirWhatsApp(mensagem);
       });
     }
 
-    // Fecha modal clicando fora do card
+    // Fecha modal clicando fora
     if (els.selectionModal) {
       els.selectionModal.addEventListener("click", function (evt) {
         if (evt.target === els.selectionModal) {
