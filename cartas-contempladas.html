@@ -747,7 +747,8 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
             <button id="btn-copy-selection" type="button" class="vv-btn vv-btn-outline">
               Copiar resumo
             </button>
-            <button id="btn-whats-selection" type="button" class="vv-btn vv-btn-secondary">
+            <!-- onclick direto garante que o modal abra mesmo se algum listener quebrar -->
+            <button id="btn-whats-selection" type="button" class="vv-btn vv-btn-secondary" onclick="openSelectionModal()">
               Visualizar para reservar
             </button>
           </div>
@@ -811,7 +812,6 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       btnCsv: document.getElementById("btn-csv"),
       btnWhats: document.getElementById("btn-whats"),
       btnCopySelection: document.getElementById("btn-copy-selection"),
-      btnWhatsSelection: document.getElementById("btn-whats-selection"),
       resultsBody: document.getElementById("results-body"),
       resultsCount: document.getElementById("results-count"),
       selectionSummary: document.getElementById("selection-summary"),
@@ -964,11 +964,11 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       return { totalParcelas: totalParcelas, grupos: grupos };
     }
 
-    // TEXTO PREMIUM (para copiar / WhatsApp)
+    // TEXTO PREMIUM (para copiar / WhatsApp / textarea)
     function buildSelectionText() {
       const selecionadas = getSelectedItems();
       if (!selecionadas.length) {
-        return 'Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel." para visualizar o resumo.';
+        return 'Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel." para ver o resumo aqui.';
       }
 
       const segmentos = Array.from(new Set(selecionadas.map(function (i) { return i.segmento; }).filter(Boolean)));
@@ -980,9 +980,6 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       const fluxo = calcularFluxoParcelas(selecionadas);
 
       const linhas = [];
-
-      linhas.push("Seleção das cartas contempladas via Vellavet");
-      linhas.push("");
 
       if (admins.length === 1) {
         linhas.push("Administradora: " + admins[0]);
@@ -997,22 +994,21 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       }
 
       linhas.push("");
-      linhas.push(selecionadas.length + " carta(s) selecionadas:");
+      linhas.push(selecionadas.length + " cartas selecionadas:");
+      linhas.push("");
 
       selecionadas.forEach(function (item) {
         const codigo = item.codigo || item.id;
-        linhas.push(
-          codigo + " - " + formatCurrency(item.credito)
-        );
+        linhas.push(codigo + " - " + formatCurrency(item.credito));
       });
 
       linhas.push("");
-      linhas.push("Crédito total das cotas: " + formatCurrency(totalCredito));
-      linhas.push("Entrada total das cotas: " + formatCurrency(totalEntrada));
+      linhas.push("Crédito Total das Cotas: " + formatCurrency(totalCredito));
+      linhas.push("Entrada Total das Cotas: " + formatCurrency(totalEntrada));
       linhas.push("");
 
       if (fluxo.totalParcelas > 0) {
-        linhas.push("Total de parcelas " + fluxo.totalParcelas + ", fluxo de pagamento:");
+        linhas.push("Total de Parcelas " + fluxo.totalParcelas + ", Fluxo de pagamento:");
         linhas.push("");
         fluxo.grupos.forEach(function (g) {
           linhas.push(g.quantidade + "x " + formatCurrency(g.valor));
@@ -1028,7 +1024,7 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       return linhas.join("\n");
     }
 
-    // HTML do modal central no padrão que você pediu
+    // HTML do modal central (mesmo padrão do texto)
     function buildSelectionHTML() {
       const selecionadas = getSelectedItems();
       if (!selecionadas.length) {
@@ -1045,7 +1041,6 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
 
       let html = "";
 
-      // Admin / segmento
       if (admins.length === 1) {
         html += "<p><strong>Administradora:</strong> " + admins[0] + "</p>";
       } else if (admins.length > 1) {
@@ -1075,7 +1070,7 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       if (fluxo.totalParcelas > 0) {
         html += "<p style=\"margin-top:10px;\"><strong>Total de Parcelas " +
           fluxo.totalParcelas +
-          ", fluxo de pagamento:</strong></p>";
+          ", Fluxo de pagamento:</strong></p>";
         html += "<ul>";
         fluxo.grupos.forEach(function (g) {
           html += "<li>" + g.quantidade + "x " + formatCurrency(g.valor) + "</li>";
@@ -1246,7 +1241,7 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       URL.revokeObjectURL(url);
     }
 
-    // Modal: abrir / fechar
+    // Modal: abrir / fechar – precisa ser global por causa do onclick
     function openSelectionModal() {
       const selecionadas = getSelectedItems();
       if (!selecionadas.length) {
@@ -1291,9 +1286,6 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
           alert("Não foi possível copiar automaticamente. Copie manualmente o resumo.");
         });
     });
-
-    // Botão que abre o modal central
-    els.btnWhatsSelection.addEventListener("click", openSelectionModal);
 
     // Botões do modal
     if (els.btnModalClose) {
