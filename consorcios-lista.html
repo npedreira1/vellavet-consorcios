@@ -9,91 +9,153 @@
     :root {
       --vv-bg: #050816;
       --vv-bg-soft: #0b1020;
-      --vv-card: #111827;
-      --vv-card-soft: #1f2937;
+      --vv-card: #0f172a;
+      --vv-card-soft: #111827;
       --vv-border: rgba(148, 163, 184, 0.35);
       --vv-text: #e5e7eb;
-      --vv-text-soft: #9ca3af;
-      --vv-primary: #22c55e;
-      --vv-primary-soft: rgba(34, 197, 94, 0.12);
-      --vv-accent: #38bdf8;
-      --vv-danger: #f97373;
-      --vv-radius-xl: 18px;
-      --vv-shadow-soft: 0 14px 48px rgba(15, 23, 42, 0.75);
+      --vv-muted: #9ca3af;
+      --vv-accent: #22c55e;
+      --vv-accent-soft: rgba(34, 197, 94, 0.12);
+      --vv-accent-strong: #16a34a;
+      --vv-info: #38bdf8;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
+      margin: 0;
+      padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 100%);
+      background: radial-gradient(circle at top, #020617 0, #020617 45%, #000 100%);
       color: var(--vv-text);
-      min-height: 100vh;
     }
 
     .vv-page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px 16px 64px;
+      min-height: 100vh;
+      padding: 32px 16px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .vv-container {
+      width: 100%;
+      max-width: 1120px;
+    }
+
+    /* HERO */
+
+    .vv-hero {
+      background: radial-gradient(circle at top left, #0f172a, #020617);
+      border-radius: 28px;
+      padding: 32px 24px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      box-shadow:
+        0 40px 80px rgba(15, 23, 42, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .vv-hero::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.14), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(34, 197, 94, 0.18), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .vv-hero-inner {
+      position: relative;
+      z-index: 1;
     }
 
     .vv-badge {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(56, 189, 248, 0.12);
-      color: #7dd3fc;
+      background: rgba(15, 23, 42, 0.9);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.5);
       font-size: 11px;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 8px;
-      border: 1px solid rgba(56, 189, 248, 0.4);
+      margin-bottom: 10px;
     }
 
-    h1.vv-title {
-      font-size: 30px;
-      line-height: 1.2;
-      margin-bottom: 6px;
+    .vv-badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+    }
+
+    .vv-title {
+      font-size: clamp(26px, 4vw, 32px);
+      margin: 0 0 8px;
+      letter-spacing: 0.02em;
     }
 
     .vv-subtitle {
-      font-size: 14px;
-      color: var(--vv-text-soft);
+      margin: 0;
       max-width: 640px;
+      font-size: 14px;
+      color: var(--vv-muted);
+      line-height: 1.5;
     }
 
-    /* Filtros */
+    /* FILTROS */
+
     .vv-filters {
-      margin-top: 32px;
-      margin-bottom: 28px;
-      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.06), rgba(15, 23, 42, 0.98));
-      border-radius: 22px;
-      padding: 22px 24px 20px;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      box-shadow: 0 18px 55px rgba(15, 23, 42, 0.9);
+      background: linear-gradient(145deg, #0f172a, #020617);
+      border-radius: 24px;
+      padding: 20px 18px 18px;
+      border: 1px solid var(--vv-border);
+      box-shadow: 0 24px 40px rgba(15, 23, 42, 0.8);
+      margin-bottom: 16px;
+    }
+
+    .vv-filters-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .vv-filters-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .vv-filters-sub {
+      font-size: 12px;
+      color: var(--vv-muted);
     }
 
     .vv-filters-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px 18px;
-      align-items: end;
-    }
-
-    .vv-field {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 13px;
+      gap: 14px 16px;
+      margin-bottom: 14px;
     }
 
     .vv-field label {
-      color: var(--vv-text-soft);
+      display: block;
+      font-size: 11px;
       font-weight: 500;
+      color: var(--vv-muted);
+      margin-bottom: 4px;
     }
 
     .vv-input,
@@ -102,7 +164,7 @@
       padding: 10px 12px;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.92);
+      background: #020617;
       color: var(--vv-text);
       font-size: 13px;
       outline: none;
@@ -114,11 +176,11 @@
       color: rgba(148, 163, 184, 0.7);
     }
 
-    .vv-select:focus,
-    .vv-input:focus {
-      border-color: var(--vv-accent);
+    .vv-input:focus,
+    .vv-select:focus {
+      border-color: var(--vv-info);
       box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.3);
-      background: rgba(15, 23, 42, 1);
+      background: #020617;
     }
 
     .vv-input-range {
@@ -132,19 +194,10 @@
 
     .vv-filters-actions {
       display: flex;
-      gap: 10px;
-      justify-content: flex-end;
-      margin-top: 18px;
       align-items: center;
-    }
-
-    .vv-pill-info {
-      font-size: 11px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.12);
-      color: #bbf7d0;
-      border: 1px solid rgba(34, 197, 94, 0.4);
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 8px;
     }
 
     .vv-btn {
@@ -158,13 +211,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 6px;
       white-space: nowrap;
     }
 
     .vv-btn-outline {
       background: transparent;
       border: 1px solid rgba(148, 163, 184, 0.7);
-      color: var(--vv-text-soft);
+      color: var(--vv-muted);
     }
 
     .vv-btn-outline:hover {
@@ -181,211 +235,389 @@
     }
 
     .vv-btn-primary:hover {
-      filter: brightness(1.06);
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(34, 197, 94, 0.65);
+      box-shadow: 0 16px 40px rgba(34, 197, 94, 0.7);
     }
 
-    /* Resultados */
+    .vv-btn-secondary {
+      background: #020617;
+      color: #e5e7eb;
+      border: 1px solid rgba(56, 189, 248, 0.6);
+    }
+
+    .vv-btn-secondary:hover {
+      background: #020617;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
+    }
+
+    .vv-btn-ghost {
+      background: transparent;
+      color: var(--vv-muted);
+      border: 1px dashed rgba(148, 163, 184, 0.6);
+    }
+
+    .vv-btn-ghost:hover {
+      border-style: solid;
+      color: var(--vv-text);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .vv-btn-action {
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      color: #bbf7d0;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.17s ease;
+    }
+
+    .vv-btn-action:hover {
+      background: rgba(34, 197, 94, 0.22);
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.5);
+    }
+
+    /* RESULTADOS */
+
+    .vv-card {
+      background: var(--vv-card);
+      border-radius: 24px;
+      border: 1px solid var(--vv-border);
+      box-shadow: 0 24px 40px rgba(15, 23, 42, 0.85);
+      padding: 18px 18px 20px;
+    }
+
     .vv-results-header {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
-      margin-top: 10px;
+      gap: 12px;
+      margin-bottom: 10px;
     }
 
     .vv-results-title {
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 14px;
+      font-weight: 500;
     }
 
-    .vv-results-sub {
-      font-size: 12px;
-      color: var(--vv-text-soft);
+    .vv-results-pill {
+      font-size: 11px;
+      color: #bae6fd;
+      background: #020617;
+      border-radius: 999px;
+      padding: 4px 10px;
+      border: 1px solid rgba(56, 189, 248, 0.4);
     }
 
     .vv-results-count {
       font-size: 11px;
-      color: var(--vv-text-soft);
+      color: var(--vv-muted);
     }
 
     .vv-table-wrapper {
-      margin-top: 10px;
       border-radius: 18px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
       overflow: hidden;
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 34, 0.98));
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.5);
     }
 
-    table.vv-results-table {
+    .vv-results-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 13px;
+      background: #020617;
     }
 
     .vv-results-table thead {
-      background: linear-gradient(90deg, #020617 0, #020617 8%, #020617 100%);
+      background: #000;
     }
 
     .vv-results-table thead th {
-      padding: 10px 14px;
+      font-size: 11px;
       text-align: left;
-      font-weight: 600;
-      color: #f9fafb;
-      border-bottom: 1px solid rgba(31, 41, 55, 1);
+      padding: 10px 12px;
+      color: rgba(148, 163, 184, 0.9);
+      border-bottom: 1px solid rgba(55, 65, 81, 0.9);
       white-space: nowrap;
     }
 
     .vv-results-table tbody tr:nth-child(even) {
-      background: rgba(15, 23, 42, 0.88);
+      background: #020617;
     }
 
     .vv-results-table tbody tr:nth-child(odd) {
-      background: rgba(15, 23, 42, 0.96);
-    }
-
-    .vv-results-table td,
-    .vv-results-table th {
-      color: var(--vv-text);
+      background: #020617;
     }
 
     .vv-results-table td {
-      padding: 9px 14px;
-      border-bottom: 1px solid rgba(30, 41, 59, 0.9);
+      font-size: 12px;
+      padding: 9px 12px;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
       vertical-align: middle;
+    }
+
+    .vv-results-table td.vv-center {
+      text-align: center;
     }
 
     .vv-tag {
       display: inline-flex;
-      padding: 3px 10px;
+      align-items: center;
+      padding: 2px 8px;
       border-radius: 999px;
-      font-size: 11px;
+      background: #020617;
       border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--vv-text-soft);
+      font-size: 11px;
     }
 
     .vv-admin {
+      font-size: 12px;
       font-weight: 500;
-      letter-spacing: 0.01em;
     }
 
     .vv-money {
       font-variant-numeric: tabular-nums;
-      white-space: nowrap;
-    }
-
-    .vv-btn-action {
-      border-radius: 999px;
-      padding: 7px 16px;
-      font-size: 12px;
-      border: 1px solid rgba(56, 189, 248, 0.8);
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), rgba(12, 74, 110, 0.95));
-      color: #e0f2fe;
-      cursor: pointer;
-      transition: all 0.16s ease;
-      white-space: nowrap;
-    }
-
-    .vv-btn-action:hover {
-      border-color: #38bdf8;
-      box-shadow: 0 10px 26px rgba(56, 189, 248, 0.45);
-      transform: translateY(-1px);
     }
 
     .vv-empty-row {
       text-align: center;
-      padding: 16px 14px;
-      color: var(--vv-text-soft);
+      padding: 16px 12px;
+      color: var(--vv-muted);
       font-size: 13px;
     }
 
-    /* Rodapé de ações */
-    .vv-footer-actions {
+    /* SELEÇÃO / RESUMO (PAINEL GRANDE) */
+
+    .vv-selection-panel {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 18px;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 14px;
+      padding: 14px 14px 12px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.16), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(34, 197, 94, 0.5);
+    }
+
+    .vv-selection-text {
+      flex: 1 1 260px;
+      min-width: 0;
+    }
+
+    .vv-selection-title {
+      font-size: 13px;
+      font-weight: 500;
+      margin: 0 0 4px;
+    }
+
+    .vv-selection-note {
+      font-size: 11px;
+      color: #bbf7d0;
+      margin: 0 0 6px;
+    }
+
+    .vv-selection-summary {
+      font-size: 11px;
+      color: var(--vv-muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      white-space: pre-wrap;
+      background: #020617;
+      border-radius: 12px;
+      padding: 8px 10px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      max-height: 132px;
+      overflow-y: auto;
+    }
+
+    .vv-selection-actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      min-width: 190px;
+    }
+
+    /* MODAL CENTRAL TIPO LIZZY */
+
+    .vv-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(2px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vv-modal-open {
+      display: flex;
+    }
+
+    .vv-modal {
+      background: #f9fafb;
+      color: #111827;
+      max-width: 520px;
+      width: calc(100% - 32px);
+      border-radius: 18px;
+      padding: 22px 24px 18px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+      position: relative;
+    }
+
+    .vv-modal-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 14px;
+    }
+
+    .vv-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      border: none;
+      background: transparent;
+      font-size: 18px;
+      cursor: pointer;
+      color: #6b7280;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .vv-modal-close:hover {
+      color: #111827;
+    }
+
+    .vv-modal-body p {
+      font-size: 14px;
+      margin: 4px 0;
+    }
+
+    .vv-modal-body strong {
+      font-weight: 600;
+    }
+
+    .vv-modal-body ul {
+      margin: 6px 0 10px 18px;
+      padding: 0;
+      font-size: 14px;
+    }
+
+    .vv-modal-body li {
+      margin: 2px 0;
+    }
+
+    .vv-modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .vv-btn-modal-copy,
+    .vv-btn-modal-whats {
+      border-radius: 999px;
+      padding: 9px 22px;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #f9fafb;
+    }
+
+    .vv-btn-modal-copy {
+      background: #00335b;
+    }
+
+    .vv-btn-modal-copy:hover {
+      background: #022747;
+    }
+
+    .vv-btn-modal-whats {
+      background: #1d7466;
+    }
+
+    .vv-btn-modal-whats:hover {
+      background: #165c51;
+    }
+
+    /* FOOTER CTA */
+
+    .vv-footer-actions {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .vv-footer-text {
+      margin: 0;
       font-size: 12px;
-      color: var(--vv-text-soft);
+      color: var(--vv-muted);
       max-width: 520px;
     }
 
     .vv-footer-cta {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 8px;
     }
 
-    .vv-btn-secondary {
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.2), rgba(15, 23, 42, 0.95));
-      border: 1px solid rgba(56, 189, 248, 0.7);
-      color: #e0f2fe;
-      padding-inline: 18px;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
-    }
-
-    .vv-btn-secondary:hover {
-      border-color: #38bdf8;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.95);
-    }
-
-    .vv-btn-ghost {
-      background: transparent;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      color: var(--vv-text-soft);
-      padding-inline: 16px;
-    }
-
-    .vv-btn-ghost:hover {
-      background: rgba(15, 23, 42, 0.9);
-      border-color: rgba(148, 163, 184, 1);
-      color: var(--vv-text);
-    }
+    /* RESPONSIVO */
 
     @media (max-width: 900px) {
       .vv-filters-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-      .vv-footer-actions {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .vv-footer-cta {
-        width: 100%;
-        justify-content: flex-start;
-      }
     }
 
     @media (max-width: 640px) {
+      .vv-page {
+        padding: 20px 10px 32px;
+      }
+
+      .vv-hero {
+        padding: 20px 16px;
+        border-radius: 22px;
+      }
+
+      .vv-filters {
+        padding: 16px 14px 14px;
+      }
+
       .vv-filters-grid {
         grid-template-columns: 1fr;
       }
 
-      .vv-page {
-        padding-inline: 12px;
+      .vv-results-header {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .vv-table-wrapper {
-        border-radius: 14px;
+      .vv-selection-panel {
+        flex-direction: column;
       }
 
-      .vv-results-table {
-        font-size: 12px;
+      .vv-selection-actions {
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
       }
 
       .vv-results-table thead th,
       .vv-results-table td {
         padding: 8px 10px;
+      }
+
+      .vv-modal {
+        max-width: 96%;
+        width: 96%;
       }
     }
   </style>
@@ -393,122 +625,170 @@
 
 <body>
   <main class="vv-page">
-    <div class="vv-hero">
-      <span class="vv-badge">Consórcio Vellavet</span>
-      <h1 class="vv-title">Cartas contempladas com curadoria especializada</h1>
-      <p class="vv-subtitle">
-        Utilize os filtros para refinar. A disponibilidade é confirmada caso a caso com a administradora e
-        pode mudar sem aviso prévio.
-      </p>
-    </div>
-
-    <!-- Filtros -->
-    <section class="vv-filters">
-      <div class="vv-filters-grid">
-        <!-- Segmento -->
-        <div class="vv-field">
-          <label for="segmento-select">Segmento</label>
-          <select id="segmento-select" class="vv-select">
-            <option value="">Todos</option>
-          </select>
+    <div class="vv-container">
+      <!-- HERO -->
+      <section class="vv-hero">
+        <div class="vv-hero-inner">
+          <span class="vv-badge">Consórcio Vellavet</span>
+          <h1 class="vv-title">Cartas contempladas com curadoria especializada</h1>
+          <p class="vv-subtitle">
+            Utilize os filtros para refinar. A disponibilidade é validada caso a caso com a administradora e
+            pode mudar sem aviso prévio.
+          </p>
         </div>
+      </section>
 
-        <!-- Administradora -->
-        <div class="vv-field">
-          <label for="admin-select">Administradora</label>
-          <select id="admin-select" class="vv-select">
-            <option value="">Todas</option>
-          </select>
-        </div>
-
-        <!-- Valor da carta -->
-        <div class="vv-field">
-          <label>Valor da Carta (R$)</label>
-          <div class="vv-input-range">
-            <input id="carta-min" class="vv-input" type="number" placeholder="mín." />
-            <input id="carta-max" class="vv-input" type="number" placeholder="máx." />
+      <!-- FILTROS -->
+      <section class="vv-filters">
+        <div class="vv-filters-header">
+          <div>
+            <div class="vv-filters-title">Filtros para encontrar a carta ideal</div>
+            <div class="vv-filters-sub">
+              Combine segmento, administradora, crédito e valor de parcela para chegar no cenário desejado.
+            </div>
           </div>
         </div>
 
-        <!-- Valor da parcela -->
-        <div class="vv-field">
-          <label>Valor da Parcela (R$)</label>
-          <div class="vv-input-range">
-            <input id="parcela-min" class="vv-input" type="number" placeholder="mín." />
-            <input id="parcela-max" class="vv-input" type="number" placeholder="máx." />
+        <div class="vv-filters-grid">
+          <div class="vv-field">
+            <label for="segmento-select">Segmento</label>
+            <select id="segmento-select" class="vv-select">
+              <option value="">Todos</option>
+            </select>
+          </div>
+
+          <div class="vv-field">
+            <label for="admin-select">Administradora</label>
+            <select id="admin-select" class="vv-select">
+              <option value="">Todas</option>
+            </select>
+          </div>
+
+          <div class="vv-field">
+            <label>Crédito (R$)</label>
+            <div class="vv-input-range">
+              <input id="carta-min" type="number" class="vv-input" placeholder="Mínimo" />
+              <input id="carta-max" type="number" class="vv-input" placeholder="Máximo" />
+            </div>
+          </div>
+
+          <div class="vv-field">
+            <label>Valor da parcela (R$)</label>
+            <div class="vv-input-range">
+              <input id="parcela-min" type="number" class="vv-input" placeholder="Mínimo" />
+              <input id="parcela-max" type="number" class="vv-input" placeholder="Máximo" />
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="vv-filters-actions">
-        <span class="vv-pill-info">Filtro com leitura do JSON local de cartas contempladas.</span>
-
-        <div style="display:flex; gap:8px;">
+        <div class="vv-filters-actions">
           <button id="btn-clear" class="vv-btn vv-btn-outline" type="button">Limpar filtros</button>
           <button id="btn-apply" class="vv-btn vv-btn-primary" type="button">Aplicar filtros</button>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Resultados -->
-    <section>
-      <div class="vv-results-header">
-        <div>
-          <div class="vv-results-title">Resultados</div>
-          <p class="vv-results-sub">
-            Cartas filtradas a partir da sua seleção. Confirmação final sempre com a Vellavet e a administradora.
-          </p>
-        </div>
-        <div id="results-count" class="vv-results-count">
-          Carregando lista...
-        </div>
-      </div>
-
-      <div class="vv-table-wrapper">
-        <table class="vv-results-table">
-          <thead>
-          <tr>
-            <th>Segmento</th>
-            <th>Administradora</th>
-            <th>Crédito (R$)</th>
-            <th>Entrada (R$)</th>
-            <th>Parcelas</th>
-            <th>Valor da Parcela (R$)</th>
-            <th>Ação</th>
-          </tr>
-          </thead>
-          <tbody id="results-body">
-          <tr>
-            <td class="vv-empty-row" colspan="7">
+      <!-- RESULTADOS -->
+      <section class="vv-card">
+        <div class="vv-results-header">
+          <div>
+            <div class="vv-results-title">Cartas contempladas disponíveis</div>
+            <div id="results-count" class="vv-results-count">
               Carregando lista de cartas contempladas…
-            </td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="vv-footer-actions">
-        <p class="vv-footer-text">
-          Quer uma análise guiada por especialista? A Vellavet atua como curadoria independente,
-          cruzando taxa de administração, prazo, segmento, uso e impacto no seu capital de giro.
-        </p>
-
-        <div class="vv-footer-cta">
-          <button id="btn-whats" type="button" class="vv-btn vv-btn-secondary">
-            Solicitar atendimento especializado
-          </button>
-          <button id="btn-csv" type="button" class="vv-btn vv-btn-ghost">
-            Download da lista (CSV)
-          </button>
+            </div>
+          </div>
+          <div class="vv-results-pill">
+            Filtro com leitura do JSON local de cartas contempladas.
+          </div>
         </div>
-      </div>
-    </section>
+
+        <div class="vv-table-wrapper">
+          <table class="vv-results-table">
+            <thead>
+              <tr>
+                <th>Sel.</th>
+                <th>Segmento</th>
+                <th>Administradora</th>
+                <th>Crédito (R$)</th>
+                <th>Entrada (R$)</th>
+                <th>Parcelas</th>
+                <th>Valor da Parcela (R$)</th>
+                <th>Ação</th>
+              </tr>
+            </thead>
+            <tbody id="results-body">
+              <tr>
+                <td class="vv-empty-row" colspan="8">
+                  Carregando lista de cartas contempladas…
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- RESUMO DE SELEÇÃO (PAINEL GRANDE) -->
+        <div class="vv-selection-panel">
+          <div class="vv-selection-text">
+            <p class="vv-selection-title">Resumo das cartas selecionadas</p>
+            <p class="vv-selection-note">
+              Selecione uma ou mais cartas na tabela para somar o crédito e a entrada e gerar um texto pronto para envio.
+            </p>
+            <pre id="selection-summary" class="vv-selection-summary">
+Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel." para ver o resumo aqui.</pre>
+          </div>
+          <div class="vv-selection-actions">
+            <button id="btn-copy-selection" type="button" class="vv-btn vv-btn-outline">
+              Copiar resumo
+            </button>
+            <!-- inline garante que o modal abra -->
+            <button id="btn-whats-selection" type="button" class="vv-btn vv-btn-secondary" onclick="openSelectionModal()">
+              Visualizar para reservar
+            </button>
+          </div>
+        </div>
+
+        <!-- FOOTER CTA -->
+        <div class="vv-footer-actions">
+          <p class="vv-footer-text">
+            Quer uma leitura guiada por especialista? A Vellavet atua como curadoria independente,
+            cruzando taxa de administração, prazo, segmento, uso e impacto no seu capital de giro.
+          </p>
+
+          <div class="vv-footer-cta">
+            <button id="btn-whats" type="button" class="vv-btn vv-btn-secondary">
+              Solicitar atendimento especializado
+            </button>
+            <button id="btn-csv" type="button" class="vv-btn vv-btn-ghost">
+              Download da lista (CSV)
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
+  <!-- MODAL CENTRAL -->
+  <div id="selection-modal" class="vv-modal-overlay">
+    <div class="vv-modal">
+      <button id="btn-modal-close" type="button" class="vv-modal-close" aria-label="Fechar resumo">✕</button>
+      <h3 class="vv-modal-title">Seleção das cartas</h3>
+      <div id="selection-modal-body" class="vv-modal-body">
+        <p>Nenhuma carta selecionada.</p>
+      </div>
+      <div class="vv-modal-actions">
+        <button id="btn-modal-copy" type="button" class="vv-btn-modal-copy">Copiar</button>
+        <button id="btn-modal-whats" type="button" class="vv-btn-modal-whats">Reservar</button>
+      </div>
+    </div>
+  </div>
+
   <script>
+    const WHATSAPP_NUMBER = "5511994151000";
+    const CONTACT_EMAIL = "contato@vellavet.com.br";
+
     const state = {
       all: [],
-      filtered: []
+      filtered: [],
+      selectedIds: new Set()
     };
 
     const els = {
@@ -522,12 +802,25 @@
       btnClear: document.getElementById("btn-clear"),
       btnCsv: document.getElementById("btn-csv"),
       btnWhats: document.getElementById("btn-whats"),
+      btnCopySelection: document.getElementById("btn-copy-selection"),
       resultsBody: document.getElementById("results-body"),
       resultsCount: document.getElementById("results-count"),
+      selectionSummary: document.getElementById("selection-summary"),
+      selectionModal: document.getElementById("selection-modal"),
+      selectionModalBody: document.getElementById("selection-modal-body"),
+      btnModalClose: document.getElementById("btn-modal-close"),
+      btnModalCopy: document.getElementById("btn-modal-copy"),
+      btnModalWhats: document.getElementById("btn-modal-whats")
     };
 
+    // quando abrirmos o modal, podemos usar seleção múltipla ou uma carta só
+    let modalItemsOverride = null;
+
     function formatCurrency(value) {
-      return value.toLocaleString("pt-BR", {
+      if (value == null || value === "") return "-";
+      const num = Number(value);
+      if (Number.isNaN(num)) return "-";
+      return num.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL",
         maximumFractionDigits: 2
@@ -536,174 +829,22 @@
 
     function loadData() {
       fetch("consorcios.json")
-        .then((res) => {
+        .then(function (res) {
           if (!res.ok) throw new Error("Erro ao carregar JSON");
           return res.json();
         })
-        .then((data) => {
-          state.all = data;
-          state.filtered = data.slice();
-          populateFilters(data);
-          renderTable();
-        })
-        .catch((err) => {
-          console.error(err);
-          els.resultsBody.innerHTML = `
-            <tr>
-              <td class="vv-empty-row" colspan="7">
-                Erro ao carregar a lista de cartas. Verifique o JSON e tente novamente.
-              </td>
-            </tr>`;
-          els.resultsCount.textContent = "Erro ao carregar lista.";
-        });
-    }
-
-    function populateFilters(data) {
-      const segmentos = Array.from(new Set(data.map(item => item.segmento))).sort();
-      const admins = Array.from(new Set(data.map(item => item.administradora))).sort();
-
-      // Segmentos
-      els.segmento.innerHTML = `<option value="">Todos</option>`;
-      segmentos.forEach(seg => {
-        const opt = document.createElement("option");
-        opt.value = seg;
-        opt.textContent = seg;
-        els.segmento.appendChild(opt);
-      });
-
-      // Administradoras
-      els.admin.innerHTML = `<option value="">Todas</option>`;
-      admins.forEach(adm => {
-        const opt = document.createElement("option");
-        opt.value = adm;
-        opt.textContent = adm;
-        els.admin.appendChild(opt);
-      });
-    }
-
-    function applyFilters() {
-      const seg = els.segmento.value;
-      const adm = els.admin.value;
-
-      const cartaMin = parseFloat(els.cartaMin.value || "0");
-      const cartaMax = parseFloat(els.cartaMax.value || "0");
-      const parcelaMin = parseFloat(els.parcelaMin.value || "0");
-      const parcelaMax = parseFloat(els.parcelaMax.value || "0");
-
-      state.filtered = state.all.filter((item) => {
-        if (seg && item.segmento !== seg) return false;
-        if (adm && item.administradora !== adm) return false;
-
-        // Crédito
-        if (!isNaN(cartaMin) && cartaMin > 0 && item.credito < cartaMin) return false;
-        if (!isNaN(cartaMax) && cartaMax > 0 && item.credito > cartaMax) return false;
-
-        // Valor parcela
-        if (!isNaN(parcelaMin) && parcelaMin > 0 && item.valor_parcela < parcelaMin) return false;
-        if (!isNaN(parcelaMax) && parcelaMax > 0 && item.valor_parcela > parcelaMax) return false;
-
-        return true;
-      });
-
-      renderTable();
-    }
-
-    function clearFilters() {
-      els.segmento.value = "";
-      els.admin.value = "";
-      els.cartaMin.value = "";
-      els.cartaMax.value = "";
-      els.parcelaMin.value = "";
-      els.parcelaMax.value = "";
-
-      state.filtered = state.all.slice();
-      renderTable();
-    }
-
-    function renderTable() {
-      if (!state.filtered.length) {
-        els.resultsBody.innerHTML = `
-          <tr>
-            <td class="vv-empty-row" colspan="7">
-              Nenhuma carta encontrada com os filtros atuais. Ajuste os parâmetros e tente novamente.
-            </td>
-          </tr>`;
-      } else {
-        els.resultsBody.innerHTML = "";
-        state.filtered.forEach((item) => {
-          const tr = document.createElement("tr");
-          tr.innerHTML = `
-            <td>
-              <span class="vv-tag">${item.segmento}</span>
-            </td>
-            <td>
-              <span class="vv-admin">${item.administradora}</span>
-            </td>
-            <td class="vv-money">${formatCurrency(item.credito)}</td>
-            <td class="vv-money">${formatCurrency(item.entrada)}</td>
-            <td>${item.parcelas}</td>
-            <td class="vv-money">${formatCurrency(item.valor_parcela)}</td>
-            <td>
-              <button class="vv-btn-action" type="button"
-                onclick="openWhatsApp('${item.administradora}', ${item.credito})">
-                Quero avaliar esta carta
-              </button>
-            </td>
-          `;
-          els.resultsBody.appendChild(tr);
-        });
-      }
-
-      els.resultsCount.textContent =
-        `${state.filtered.length} de ${state.all.length} cartas visíveis nos filtros atuais.`;
-    }
-
-    function downloadCSV() {
-      if (!state.filtered.length) return;
-
-      const headers = [
-        "segmento",
-        "administradora",
-        "credito",
-        "entrada",
-        "parcelas",
-        "valor_parcela"
-      ];
-
-      const rows = state.filtered.map((item) =>
-        headers.map((h) => String(item[h] ?? "").replace(/"/g, '""')).join(";")
-      );
-
-      const csv = [headers.join(";"), ...rows].join("\r\n");
-      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "cartas_contempladas_vellavet.csv";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    }
-
-    function openWhatsApp(administradora, credito) {
-      const numero = "5511999999999"; // TODO: colocar número real da Vellavet
-      const texto = `Olá, vi a lista de cartas contempladas da Vellavet e gostaria de falar com um especialista para avaliar uma carta da administradora ${administradora}, com crédito aproximado de ${formatCurrency(credito)}.`;
-      const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
-      window.open(url, "_blank");
-    }
-
-    // Disponibiliza função no escopo global para o onclick do botão
-    window.openWhatsApp = openWhatsApp;
-
-    // Eventos
-    els.btnApply.addEventListener("click", applyFilters);
-    els.btnClear.addEventListener("click", clearFilters);
-    els.btnCsv.addEventListener("click", downloadCSV);
-    els.btnWhats.addEventListener("click", () => openWhatsApp("Vellavet", 0));
-
-    // Carregar tudo
-    loadData();
-  </script>
-</body>
-</html>
+        .then(function (data) {
+          state.all = data.map(function (item, index) {
+            return {
+              id: item.id || item.codigo || item.cod || ("carta-" + (index + 1)),
+              segmento: item.segmento || item.Segmento || item.segment || "Imóveis",
+              administradora: item.administradora || item.Adm || item.admin || "Administradora",
+              credito: Number(item.credito || item.Credito || item["Crédito"] || 0),
+              entrada: Number(item.entrada || item.Entrada || 0),
+              parcelas: Number(item.parcelas || item.Prazo || 0),
+              valor_parcela: Number(
+                item.valor_parcela ||
+                item["Valor Parcela"] ||
+                item.custo_mensal ||
+                item["CUSTO MENSAL"] ||
+                0
