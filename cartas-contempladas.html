@@ -9,8 +9,8 @@
     :root {
       --vv-bg: #050816;
       --vv-bg-soft: #0b1020;
-      --vv-card: #111827;
-      --vv-card-soft: #1f2937;
+      --vv-card: #0f172a;
+      --vv-card-soft: #111827;
       --vv-border: rgba(148, 163, 184, 0.35);
       --vv-text: #e5e7eb;
       --vv-muted: #9ca3af;
@@ -18,7 +18,6 @@
       --vv-accent-soft: rgba(34, 197, 94, 0.12);
       --vv-accent-strong: #16a34a;
       --vv-info: #38bdf8;
-      --vv-danger: #f97373;
     }
 
     * {
@@ -66,8 +65,8 @@
       position: absolute;
       inset: -40%;
       background:
-        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.19), transparent 55%),
-        radial-gradient(circle at 100% 0, rgba(34, 197, 94, 0.2), transparent 55%);
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.14), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(34, 197, 94, 0.18), transparent 55%);
       opacity: 0.9;
       pointer-events: none;
     }
@@ -118,7 +117,7 @@
     /* FILTROS */
 
     .vv-filters {
-      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
+      background: linear-gradient(145deg, #0f172a, #020617);
       border-radius: 24px;
       padding: 20px 18px 18px;
       border: 1px solid var(--vv-border);
@@ -165,7 +164,7 @@
       padding: 10px 12px;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.92);
+      background: #020617;
       color: var(--vv-text);
       font-size: 13px;
       outline: none;
@@ -181,7 +180,7 @@
     .vv-select:focus {
       border-color: var(--vv-info);
       box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.3);
-      background: rgba(15, 23, 42, 1);
+      background: #020617;
     }
 
     .vv-input-range {
@@ -241,13 +240,13 @@
     }
 
     .vv-btn-secondary {
-      background: rgba(15, 23, 42, 0.9);
+      background: #020617;
       color: #e5e7eb;
       border: 1px solid rgba(56, 189, 248, 0.6);
     }
 
     .vv-btn-secondary:hover {
-      background: rgba(15, 23, 42, 1);
+      background: #020617;
       box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.6);
     }
 
@@ -265,7 +264,7 @@
 
     .vv-btn-action {
       font-size: 11px;
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: 999px;
       background: rgba(34, 197, 94, 0.12);
       color: #bbf7d0;
@@ -276,14 +275,14 @@
     }
 
     .vv-btn-action:hover {
-      background: rgba(34, 197, 94, 0.2);
+      background: rgba(34, 197, 94, 0.22);
       box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.5);
     }
 
     /* RESULTADOS */
 
     .vv-card {
-      background: rgba(15, 23, 42, 0.98);
+      background: var(--vv-card);
       border-radius: 24px;
       border: 1px solid var(--vv-border);
       box-shadow: 0 24px 40px rgba(15, 23, 42, 0.85);
@@ -306,7 +305,7 @@
     .vv-results-pill {
       font-size: 11px;
       color: #bae6fd;
-      background: rgba(15, 23, 42, 0.9);
+      background: #020617;
       border-radius: 999px;
       padding: 4px 10px;
       border: 1px solid rgba(56, 189, 248, 0.4);
@@ -326,11 +325,11 @@
     .vv-results-table {
       width: 100%;
       border-collapse: collapse;
-      background: rgba(15, 23, 42, 0.95);
+      background: #020617;
     }
 
     .vv-results-table thead {
-      background: linear-gradient(90deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.94));
+      background: #000;
     }
 
     .vv-results-table thead th {
@@ -343,11 +342,11 @@
     }
 
     .vv-results-table tbody tr:nth-child(even) {
-      background: rgba(15, 23, 42, 0.9);
+      background: #020617;
     }
 
     .vv-results-table tbody tr:nth-child(odd) {
-      background: rgba(15, 23, 42, 0.98);
+      background: #020617;
     }
 
     .vv-results-table td {
@@ -366,7 +365,7 @@
       align-items: center;
       padding: 2px 8px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 1);
+      background: #020617;
       border: 1px solid rgba(148, 163, 184, 0.6);
       font-size: 11px;
     }
@@ -422,7 +421,7 @@
       color: var(--vv-muted);
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       white-space: pre-wrap;
-      background: rgba(15, 23, 42, 0.9);
+      background: #020617;
       border-radius: 12px;
       padding: 8px 10px;
       border: 1px solid rgba(55, 65, 81, 0.9);
@@ -511,38 +510,49 @@
     .vv-modal-actions {
       display: flex;
       justify-content: flex-end;
-      gap: 8px;
+      gap: 10px;
       margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .vv-btn-modal-copy,
+    .vv-btn-modal-whats,
+    .vv-btn-modal-email {
+      border-radius: 999px;
+      padding: 9px 22px;
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #f9fafb;
     }
 
     .vv-btn-modal-copy {
-      background: #e5e7eb;
-      color: #111827;
-      border: none;
-      padding: 8px 18px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
+      background: #00335b;
     }
 
     .vv-btn-modal-copy:hover {
-      background: #d1d5db;
+      background: #022747;
     }
 
     .vv-btn-modal-whats {
-      background: #16a34a;
-      color: #f9fafb;
-      border: none;
-      padding: 8px 20px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
+      background: #1d7466;
     }
 
     .vv-btn-modal-whats:hover {
-      background: #15803d;
+      background: #165c51;
+    }
+
+    .vv-btn-modal-email {
+      background: #6b21a8;
+    }
+
+    .vv-btn-modal-email:hover {
+      background: #581c87;
     }
 
     /* FOOTER CTA */
@@ -610,10 +620,6 @@
         flex-wrap: wrap;
       }
 
-      .vv-results-table {
-        font-size: 12px;
-      }
-
       .vv-results-table thead th,
       .vv-results-table td {
         padding: 8px 10px;
@@ -654,7 +660,6 @@
         </div>
 
         <div class="vv-filters-grid">
-          <!-- Segmento -->
           <div class="vv-field">
             <label for="segmento-select">Segmento</label>
             <select id="segmento-select" class="vv-select">
@@ -662,7 +667,6 @@
             </select>
           </div>
 
-          <!-- Administradora -->
           <div class="vv-field">
             <label for="admin-select">Administradora</label>
             <select id="admin-select" class="vv-select">
@@ -670,7 +674,6 @@
             </select>
           </div>
 
-          <!-- Crédito -->
           <div class="vv-field">
             <label>Crédito (R$)</label>
             <div class="vv-input-range">
@@ -679,7 +682,6 @@
             </div>
           </div>
 
-          <!-- Parcela -->
           <div class="vv-field">
             <label>Valor da parcela (R$)</label>
             <div class="vv-input-range">
@@ -705,7 +707,7 @@
             </div>
           </div>
           <div class="vv-results-pill">
-            Base em cartas contempladas de diversas administradoras, atualizada periodicamente.
+            Filtro com leitura do JSON local de cartas contempladas.
           </div>
         </div>
 
@@ -747,8 +749,7 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
             <button id="btn-copy-selection" type="button" class="vv-btn vv-btn-outline">
               Copiar resumo
             </button>
-            <!-- onclick direto garante que o modal abra mesmo se algum listener quebrar -->
-            <button id="btn-whats-selection" type="button" class="vv-btn vv-btn-secondary" onclick="openSelectionModal()">
+            <button id="btn-open-modal" type="button" class="vv-btn vv-btn-secondary">
               Visualizar para reservar
             </button>
           </div>
@@ -774,7 +775,7 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
     </div>
   </main>
 
-  <!-- MODAL CENTRAL DE SELEÇÃO (TIPO LIZZY) -->
+  <!-- MODAL CENTRAL -->
   <div id="selection-modal" class="vv-modal-overlay">
     <div class="vv-modal">
       <button id="btn-modal-close" type="button" class="vv-modal-close" aria-label="Fechar resumo">✕</button>
@@ -784,13 +785,17 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       </div>
       <div class="vv-modal-actions">
         <button id="btn-modal-copy" type="button" class="vv-btn-modal-copy">Copiar</button>
-        <button id="btn-modal-whats" type="button" class="vv-btn-modal-whats">Reservar</button>
+        <button id="btn-modal-email" type="button" class="vv-btn-modal-email" style="display:none;">
+          E-mail
+        </button>
+        <button id="btn-modal-whats" type="button" class="vv-btn-modal-whats">
+          Reservar
+        </button>
       </div>
     </div>
   </div>
 
   <script>
-    // CONTATOS OFICIAIS VELLAVET
     const WHATSAPP_NUMBER = "5511994151000";
     const CONTACT_EMAIL = "contato@vellavet.com.br";
 
@@ -812,6 +817,7 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       btnCsv: document.getElementById("btn-csv"),
       btnWhats: document.getElementById("btn-whats"),
       btnCopySelection: document.getElementById("btn-copy-selection"),
+      btnOpenModal: document.getElementById("btn-open-modal"),
       resultsBody: document.getElementById("results-body"),
       resultsCount: document.getElementById("results-count"),
       selectionSummary: document.getElementById("selection-summary"),
@@ -819,7 +825,14 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       selectionModalBody: document.getElementById("selection-modal-body"),
       btnModalClose: document.getElementById("btn-modal-close"),
       btnModalCopy: document.getElementById("btn-modal-copy"),
-      btnModalWhats: document.getElementById("btn-modal-whats")
+      btnModalWhats: document.getElementById("btn-modal-whats"),
+      btnModalEmail: document.getElementById("btn-modal-email")
+    };
+
+    // estado do modal
+    const modalState = {
+      items: [],
+      isSingle: false
     };
 
     function formatCurrency(value) {
@@ -866,18 +879,20 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
         .catch(function (err) {
           console.error(err);
           els.resultsBody.innerHTML =
-            '<tr>' +
-            '<td class="vv-empty-row" colspan="8">' +
+            '<tr><td class="vv-empty-row" colspan="8">' +
             'Ocorreu um erro ao carregar a base de cartas contempladas. Tente novamente mais tarde.' +
-            '</td>' +
-            '</tr>';
+            '</td></tr>';
           els.resultsCount.textContent = "Erro ao carregar dados.";
         });
     }
 
     function popularFiltros() {
-      const segmentos = Array.from(new Set(state.all.map(function (i) { return i.segmento; }).filter(Boolean))).sort();
-      const admins = Array.from(new Set(state.all.map(function (i) { return i.administradora; }).filter(Boolean))).sort();
+      const segmentos = Array
+        .from(new Set(state.all.map(function (i) { return i.segmento; }).filter(Boolean)))
+        .sort();
+      const admins = Array
+        .from(new Set(state.all.map(function (i) { return i.administradora; }).filter(Boolean)))
+        .sort();
 
       segmentos.forEach(function (seg) {
         const opt = document.createElement("option");
@@ -929,8 +944,9 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       els.parcelaMin.value = "";
       els.parcelaMax.value = "";
 
-      // limpa seleção em massa
       state.selectedIds.clear();
+      modalState.items = [];
+      modalState.isSingle = false;
 
       state.filtered = state.all.slice();
       renderTable();
@@ -942,12 +958,11 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       return state.all.filter(function (item) { return ids.has(item.id); });
     }
 
-    // calcula total e grupos de parcelas por valor
-    function calcularFluxoParcelas(selecionadas) {
+    function calcularFluxoParcelas(lista) {
       let totalParcelas = 0;
       const gruposMap = new Map();
 
-      selecionadas.forEach(function (item) {
+      lista.forEach(function (item) {
         const qtd = Number(item.parcelas || 0);
         const valor = Number(item.valor_parcela || 0);
         if (!qtd || !valor) return;
@@ -964,9 +979,8 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       return { totalParcelas: totalParcelas, grupos: grupos };
     }
 
-    // TEXTO PREMIUM (para copiar / WhatsApp / textarea)
-    function buildSelectionText() {
-      const selecionadas = getSelectedItems();
+    function buildSelectionText(items) {
+      const selecionadas = items && items.length ? items : getSelectedItems();
       if (!selecionadas.length) {
         return 'Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel." para ver o resumo aqui.';
       }
@@ -1007,10 +1021,11 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       linhas.push("Entrada Total das Cotas: " + formatCurrency(totalEntrada));
       linhas.push("");
 
-      if (fluxo.totalParcelas > 0) {
-        linhas.push("Total de Parcelas " + fluxo.totalParcelas + ", Fluxo de pagamento:");
+      const f = fluxo;
+      if (f.totalParcelas > 0) {
+        linhas.push("Total de Parcelas " + f.totalParcelas + ", Fluxo de pagamento:");
         linhas.push("");
-        fluxo.grupos.forEach(function (g) {
+        f.grupos.forEach(function (g) {
           linhas.push(g.quantidade + "x " + formatCurrency(g.valor));
         });
         linhas.push("");
@@ -1024,9 +1039,8 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       return linhas.join("\n");
     }
 
-    // HTML do modal central (mesmo padrão do texto)
-    function buildSelectionHTML() {
-      const selecionadas = getSelectedItems();
+    function buildSelectionHTML(items) {
+      const selecionadas = items && items.length ? items : getSelectedItems();
       if (!selecionadas.length) {
         return "<p>Nenhuma carta selecionada no momento.</p>";
       }
@@ -1067,12 +1081,13 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       html += "<p><strong>Crédito Total das Cotas:</strong> " + formatCurrency(totalCredito) + "</p>";
       html += "<p><strong>Entrada Total das Cotas:</strong> " + formatCurrency(totalEntrada) + "</p>";
 
-      if (fluxo.totalParcelas > 0) {
+      const f = fluxo;
+      if (f.totalParcelas > 0) {
         html += "<p style=\"margin-top:10px;\"><strong>Total de Parcelas " +
-          fluxo.totalParcelas +
+          f.totalParcelas +
           ", Fluxo de pagamento:</strong></p>";
         html += "<ul>";
-        fluxo.grupos.forEach(function (g) {
+        f.grupos.forEach(function (g) {
           html += "<li>" + g.quantidade + "x " + formatCurrency(g.valor) + "</li>";
         });
         html += "</ul>";
@@ -1082,18 +1097,15 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
     }
 
     function atualizarResumoSelecao() {
-      const texto = buildSelectionText();
-      els.selectionSummary.textContent = texto;
+      els.selectionSummary.textContent = buildSelectionText();
     }
 
     function renderTable() {
       if (!state.filtered.length) {
         els.resultsBody.innerHTML =
-          '<tr>' +
-          '<td class="vv-empty-row" colspan="8">' +
+          '<tr><td class="vv-empty-row" colspan="8">' +
           'Nenhuma carta encontrada com os filtros atuais. Ajuste os parâmetros e tente novamente.' +
-          '</td>' +
-          '</tr>';
+          '</td></tr>';
       } else {
         els.resultsBody.innerHTML = "";
         state.filtered.forEach(function (item) {
@@ -1103,21 +1115,13 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
             '<td class="vv-center">' +
               '<input type="checkbox" class="vv-select-card"' + (isSelected ? " checked" : "") + " />" +
             "</td>" +
-            "<td>" +
-              '<span class="vv-tag">' + item.segmento + "</span>" +
-            "</td>" +
-            "<td>" +
-              '<span class="vv-admin">' + item.administradora + "</span>" +
-            "</td>" +
-            '<td class="vv-money">' + formatCurrency(item.credito) + "</td>" +
-            '<td class="vv-money">' + formatCurrency(item.entrada) + "</td>" +
+            "<td><span class=\"vv-tag\">" + item.segmento + "</span></td>" +
+            "<td><span class=\"vv-admin\">" + item.administradora + "</span></td>" +
+            "<td class=\"vv-money\">" + formatCurrency(item.credito) + "</td>" +
+            "<td class=\"vv-money\">" + formatCurrency(item.entrada) + "</td>" +
             "<td>" + (item.parcelas || "-") + "</td>" +
-            '<td class="vv-money">' + formatCurrency(item.valor_parcela) + "</td>" +
-            "<td>" +
-              '<button class="vv-btn-action" type="button">' +
-                "Quero avaliar esta carta" +
-              "</button>" +
-            "</td>";
+            "<td class=\"vv-money\">" + formatCurrency(item.valor_parcela) + "</td>" +
+            "<td><button class=\"vv-btn-action\" type=\"button\">Quero avaliar esta carta</button></td>";
 
           const checkbox = tr.querySelector(".vv-select-card");
           checkbox.addEventListener("change", function (evt) {
@@ -1131,18 +1135,8 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
 
           const btnAction = tr.querySelector(".vv-btn-action");
           btnAction.addEventListener("click", function () {
-            const mensagem = construirTextoWhatsSingle(item);
-
-            const usarWhats = confirm(
-              "Como prefere ser atendido pela Vellavet?\n\n" +
-              "OK = WhatsApp\nCancelar = E-mail (" + CONTACT_EMAIL + ")"
-            );
-
-            if (usarWhats) {
-              abrirWhatsApp(mensagem);
-            } else {
-              abrirEmail(mensagem);
-            }
+            // modo 1 carta
+            openSelectionModalForItems([item], true);
           });
 
           els.resultsBody.appendChild(tr);
@@ -1156,28 +1150,6 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
         " cartas visíveis nos filtros atuais.";
 
       atualizarResumoSelecao();
-    }
-
-    function construirTextoWhatsSingle(item) {
-      const codigo = item.codigo || item.id;
-      const linhas = [];
-
-      linhas.push("Olá! Encontrei esta carta contemplada no ambiente Vellavet e gostaria de avançar com a análise:");
-      linhas.push("");
-      linhas.push("Código: " + codigo);
-      linhas.push("Segmento: " + item.segmento);
-      linhas.push("Administradora: " + item.administradora);
-      linhas.push("Crédito: " + formatCurrency(item.credito));
-      linhas.push("Entrada estimada: " + formatCurrency(item.entrada));
-      linhas.push("Condição de parcelas: " + (item.parcelas || "-") + "x de " + formatCurrency(item.valor_parcela));
-      linhas.push("");
-      linhas.push(
-        "Estou à disposição para seguir com a reserva. Caso necessário, este contato pode ser retornado também pelo e-mail " +
-        CONTACT_EMAIL +
-        "."
-      );
-
-      return linhas.join("\n");
     }
 
     function abrirWhatsApp(mensagem) {
@@ -1197,13 +1169,8 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       if (!state.filtered.length) return;
 
       const header = [
-        "Codigo",
-        "Segmento",
-        "Administradora",
-        "Credito",
-        "Entrada",
-        "Parcelas",
-        "Valor_Parcela"
+        "Codigo", "Segmento", "Administradora", "Credito",
+        "Entrada", "Parcelas", "Valor_Parcela"
       ];
 
       const linhas = state.filtered.map(function (item) {
@@ -1241,26 +1208,47 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       URL.revokeObjectURL(url);
     }
 
-    // Modal: abrir / fechar – precisa ser global por causa do onclick
-    function openSelectionModal() {
-      const selecionadas = getSelectedItems();
-      if (!selecionadas.length) {
+    // ===== MODAL =====
+    function openSelectionModalForItems(items, isSingle) {
+      if (!items || !items.length) {
         alert("Selecione pelo menos uma carta na tabela para visualizar o resumo.");
         return;
       }
-      if (els.selectionModal && els.selectionModalBody) {
-        els.selectionModalBody.innerHTML = buildSelectionHTML();
-        els.selectionModal.classList.add("vv-modal-open");
+
+      modalState.items = items;
+      modalState.isSingle = !!isSingle;
+
+      els.selectionModalBody.innerHTML = buildSelectionHTML(items);
+
+      // Ajusta botões conforme o contexto
+      if (modalState.isSingle) {
+        els.btnModalEmail.style.display = "inline-flex";
+        els.btnModalWhats.textContent = "WhatsApp";
+      } else {
+        els.btnModalEmail.style.display = "none";
+        els.btnModalWhats.textContent = "Reservar";
       }
+
+      els.selectionModal.classList.add("vv-modal-open");
+    }
+
+    function openSelectionModalFromSelection() {
+      const itens = getSelectedItems();
+      if (!itens.length) {
+        alert("Selecione pelo menos uma carta na coluna \"Sel.\" para visualizar o resumo.");
+        return;
+      }
+      openSelectionModalForItems(itens, false);
     }
 
     function closeSelectionModal() {
-      if (els.selectionModal) {
-        els.selectionModal.classList.remove("vv-modal-open");
-      }
+      modalState.items = [];
+      modalState.isSingle = false;
+      els.selectionModal.classList.remove("vv-modal-open");
     }
 
-    // Eventos principais
+    // ===== EVENTOS PRINCIPAIS =====
+
     els.btnApply.addEventListener("click", aplicarFiltros);
     els.btnClear.addEventListener("click", limparFiltros);
     els.btnCsv.addEventListener("click", downloadCSV);
@@ -1287,14 +1275,15 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
         });
     });
 
-    // Botões do modal
+    els.btnOpenModal.addEventListener("click", openSelectionModalFromSelection);
+
     if (els.btnModalClose) {
       els.btnModalClose.addEventListener("click", closeSelectionModal);
     }
 
     if (els.btnModalCopy) {
       els.btnModalCopy.addEventListener("click", function () {
-        const texto = buildSelectionText();
+        const texto = buildSelectionText(modalState.items);
         if (!navigator.clipboard) {
           alert("Copie o texto manualmente.");
           return;
@@ -1311,19 +1300,24 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
 
     if (els.btnModalWhats) {
       els.btnModalWhats.addEventListener("click", function () {
-        const selecionadas = getSelectedItems();
-        if (!selecionadas.length) {
-          alert("Selecione pelo menos uma carta na tabela antes de reservar.");
-          return;
-        }
-        const mensagem =
-          buildSelectionText() +
+        const texto = buildSelectionText(modalState.items);
+        const msg =
+          texto +
           "\n\nEnviei este resumo a partir do ambiente Vellavet e gostaria de avançar na reserva.";
-        abrirWhatsApp(mensagem);
+        abrirWhatsApp(msg);
       });
     }
 
-    // Fecha modal clicando fora
+    if (els.btnModalEmail) {
+      els.btnModalEmail.addEventListener("click", function () {
+        const texto = buildSelectionText(modalState.items);
+        const msg =
+          texto +
+          "\n\nEnviei este resumo a partir do ambiente Vellavet e gostaria de avançar na reserva.";
+        abrirEmail(msg);
+      });
+    }
+
     if (els.selectionModal) {
       els.selectionModal.addEventListener("click", function (evt) {
         if (evt.target === els.selectionModal) {
@@ -1332,7 +1326,6 @@ Nenhuma carta selecionada no momento. Marque uma ou mais cartas na coluna "Sel."
       });
     }
 
-    // Inicialização
     loadData();
   </script>
 </body>
